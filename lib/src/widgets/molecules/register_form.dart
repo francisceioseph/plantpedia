@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
+import 'package:plantpedia/src/widgets/pages/App.dart';
 import 'package:plantpedia/src/widgets/templates/loading_dialog.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -166,7 +167,12 @@ class _RegisterFormState extends State<RegisterForm> {
         print(_displayName);
         print(_email);
         print(_password);
+
         Navigator.of(context).pop();
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          App.routeName,
+          (_) => false,
+        );
       });
 
       // final bloc = AppBlocProvider.of(context).authBloc;
