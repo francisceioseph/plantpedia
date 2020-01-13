@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
 import 'package:plantpedia/src/widgets/templates/loading_dialog.dart';
@@ -44,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
     return IconFormTextField(
       labelText: 'Email',
       hintText: 'Your email address',
-      leadingIcon: Icons.email,
+      leadingIcon: FontAwesomeIcons.envelope,
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       focusNode: _emailFocusNode,
@@ -62,7 +63,7 @@ class _LoginFormState extends State<LoginForm> {
     return IconFormTextField(
       labelText: 'Password',
       hintText: 'Your password',
-      leadingIcon: Icons.lock,
+      leadingIcon: FontAwesomeIcons.lock,
       keyboardType: TextInputType.text,
       obscureText: true,
       textInputAction: TextInputAction.done,
@@ -93,6 +94,10 @@ class _LoginFormState extends State<LoginForm> {
           });
 
       _formKey.currentState.save();
+
+      Future.delayed(Duration(seconds: 1)).then((_) {
+        Navigator.of(context).pop();
+      });
 
       print(_email);
       print(_password);

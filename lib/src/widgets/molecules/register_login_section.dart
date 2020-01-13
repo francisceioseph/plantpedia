@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/widgets/pages/RegisterPage.dart';
+import 'package:plantpedia/src/widgets/pages/LoginPage.dart';
 
-class LoginRegisterSection extends StatelessWidget {
+class RegisterLoginSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,10 +11,10 @@ class LoginRegisterSection extends StatelessWidget {
         children: <Widget>[
           Text('Do not have an account? '),
           FlatButton(
-            child: Text('register'),
+            child: Text('login'),
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                RegisterPage.routeName,
+                LoginPage.routeName,
                 (_) => false,
               );
             },
