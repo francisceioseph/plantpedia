@@ -22,7 +22,6 @@ class LoginPage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 AppLogo(),
-                AppTitle(),
                 LoginForm(),
                 _renderLoginSocialMessage(),
                 LoginSocial(),
