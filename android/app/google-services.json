@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "546019078254",
+    "firebase_url": "https://plantpedia-99294.firebaseio.com",
+    "project_id": "plantpedia-99294",
+    "storage_bucket": "plantpedia-99294.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546019078254:android:7290ee71fe3edd1363767f",
+        "android_client_info": {
+          "package_name": "com.francisceioseph.plantpedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546019078254-ptjd42ctt06f1du6tf7mdcbfurbod859.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbcrxyEY_4oq4VkVQWZLPxjiw67R2PWXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546019078254-ptjd42ctt06f1du6tf7mdcbfurbod859.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
