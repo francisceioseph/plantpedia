@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/widgets/templates/plants_connector.dart';
 
 class App extends StatelessWidget {
   static String routeName = '/';
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
           left: 16,
         ),
         child: Center(
-          child: Text('10000236589 Apple Watch'),
+          child: PlantsConnector(),
         ),
       ),
     );

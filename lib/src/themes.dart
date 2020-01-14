@@ -3,7 +3,7 @@ import 'package:plantpedia/src/constants.dart';
 
 final kLightTheme = ThemeData(
   brightness: Brightness.light,
-  backgroundColor: kBackgroundColor,
+  backgroundColor: Colors.white,
   scaffoldBackgroundColor: kBackgroundColor,
   appBarTheme: AppBarTheme(
     color: kBackgroundColor,
@@ -11,7 +11,7 @@ final kLightTheme = ThemeData(
       title: TextStyle(
         color: kTerciaryColor,
         fontFamily: 'SF Pro Display',
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
     ),
@@ -42,7 +42,7 @@ final kLightTheme = ThemeData(
 
 final kDarkTheme = ThemeData(
   brightness: Brightness.dark,
-  backgroundColor: kDarkPrimaryColor,
+  backgroundColor: kDarkAccentColor,
   scaffoldBackgroundColor: kDarkPrimaryColor,
   accentColor: kDarkAccentColor2,
   appBarTheme: AppBarTheme(
@@ -51,7 +51,7 @@ final kDarkTheme = ThemeData(
       title: TextStyle(
         color: kDarkTextColor,
         fontFamily: 'SF Pro Display',
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
     ),

@@ -10,7 +10,7 @@ final kTerciaryAccentColor = Color(0xffFE8F5F);
 final kTerciaryAccentColor2 = Color(0xffFFAC4C);
 
 final kBackgroundColor = Color(0xffF2F2F2);
-final kBackgroundColor2 = Color(0xff787878);
+final kBackgroundColor2 = Color(0xffF2F2F2);
 
 final kTextColor = Color(0xff252B4C);
 
