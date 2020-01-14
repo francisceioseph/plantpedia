@@ -4,7 +4,7 @@ import 'package:plantpedia/src/models/plants_view_model.dart';
 import 'package:plantpedia/src/redux/actions/plants_actions.dart';
 import 'package:plantpedia/src/redux/states/app_state.dart';
 import 'package:plantpedia/src/redux/store.dart';
-import 'package:plantpedia/src/widgets/molecules/plant_grid/plant_grid.dart';
+import 'package:plantpedia/src/widgets/organisms/plant_grid.dart';
 
 class PlantsConnector extends StatefulWidget {
   PlantsConnector({Key key}) : super(key: key);

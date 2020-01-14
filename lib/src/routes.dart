@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/widgets/pages/plant_detail_page.dart';
 import 'package:plantpedia/src/widgets/pages/plants_page.dart';
 import 'package:plantpedia/src/widgets/pages/login_page.dart';
 import 'package:plantpedia/src/widgets/pages/RegisterPage.dart';
@@ -17,6 +18,14 @@ class AppRouter {
       return MaterialPageRoute(
         builder: (BuildContext context) {
           return RegisterPage();
+        },
+      );
+    }
+
+    if (settings.name == PlantDetailPage.routeName) {
+      return MaterialPageRoute(
+        builder: (BuildContext context) {
+          return PlantDetailPage();
         },
       );
     }

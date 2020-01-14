@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
+import 'package:plantpedia/src/redux/actions/plants_actions.dart';
+import 'package:plantpedia/src/redux/store.dart';
+import 'package:plantpedia/src/widgets/pages/plant_detail_page.dart';
 
 class PlantCard extends StatelessWidget {
   final PlantModel plant;
@@ -8,22 +11,30 @@ class PlantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          _renderPlantImage(context),
-          _renderPlantInfo(context),
-        ],
-      ),
-      decoration: BoxDecoration(
-        color: Theme.of(context).backgroundColor,
-        borderRadius: BorderRadius.all(
-          Radius.circular(16),
+    return GestureDetector(
+      onTap: () => _onPlantTap(context),
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            _renderPlantImage(context),
+            _renderPlantInfo(context),
+          ],
+        ),
+        decoration: BoxDecoration(
+          color: Theme.of(context).backgroundColor,
+          borderRadius: BorderRadius.all(
+            Radius.circular(16),
+          ),
         ),
       ),
     );
+  }
+
+  _onPlantTap(BuildContext context) {
+    store.dispatch(SelectPlant(plant: plant));
+    Navigator.of(context).pushNamed(PlantDetailPage.routeName);
   }
 
   Widget _renderPlantImage(BuildContext context) {
@@ -31,8 +42,11 @@ class PlantCard extends StatelessWidget {
       widthFactor: 0.9,
       child: Container(
         padding: EdgeInsets.all(4),
-        child: Image.network(
-          plant.images[0].url,
+        child: Hero(
+          tag: 'plant-image-${plant.id}',
+          child: Image.network(
+            plant.images[0].url,
+          ),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(

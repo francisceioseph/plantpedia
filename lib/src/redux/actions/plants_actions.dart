@@ -31,3 +31,14 @@ class RetrievePlantsSuccess extends ReduxAction<AppState> {
     return state.copy(plantState: plantState);
   }
 }
+
+class SelectPlant extends ReduxAction<AppState> {
+  final PlantModel plant;
+
+  SelectPlant({this.plant}) : assert(plant != null);
+
+  AppState reduce() {
+    final plantState = state.plantState.copy(plant: plant);
+    return state.copy(plantState: plantState);
+  }
+}
