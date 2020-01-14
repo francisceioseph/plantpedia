@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/widgets/templates/plants_connector.dart';
 
-class App extends StatelessWidget {
+class PlantsPage extends StatelessWidget {
   static String routeName = '/';
 
   @override
@@ -12,13 +12,15 @@ class App extends StatelessWidget {
           'PlantPedia',
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.only(
-          right: 16,
-          left: 16,
-        ),
-        child: Center(
-          child: PlantsConnector(),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.only(
+            right: 16,
+            left: 16,
+          ),
+          child: Center(
+            child: PlantsConnector(),
+          ),
         ),
       ),
     );

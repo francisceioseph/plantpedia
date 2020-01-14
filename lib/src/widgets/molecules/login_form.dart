@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
-import 'package:plantpedia/src/widgets/pages/App.dart';
+import 'package:plantpedia/src/widgets/pages/plants_page.dart';
 import 'package:plantpedia/src/widgets/templates/loading_dialog.dart';
 
 class LoginForm extends StatefulWidget {
@@ -99,7 +99,7 @@ class _LoginFormState extends State<LoginForm> {
       Future.delayed(Duration(seconds: 1)).then((_) {
         Navigator.of(context).pop();
         Navigator.of(context).pushNamedAndRemoveUntil(
-          App.routeName,
+          PlantsPage.routeName,
           (_) => false,
         );
       });

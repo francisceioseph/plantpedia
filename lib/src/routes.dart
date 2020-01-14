@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/widgets/pages/App.dart';
-import 'package:plantpedia/src/widgets/pages/LoginPage.dart';
+import 'package:plantpedia/src/widgets/pages/plants_page.dart';
+import 'package:plantpedia/src/widgets/pages/login_page.dart';
 import 'package:plantpedia/src/widgets/pages/RegisterPage.dart';
 
 class AppRouter {
@@ -23,7 +23,7 @@ class AppRouter {
 
     return MaterialPageRoute(
       builder: (BuildContext context) {
-        return App();
+        return PlantsPage();
       },
     );
   }

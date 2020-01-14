@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/widgets/pages/LoginPage.dart';
+import 'package:plantpedia/src/widgets/pages/login_page.dart';
 
 class RegisterLoginSection extends StatelessWidget {
   @override
