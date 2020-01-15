@@ -1,31 +1,29 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/models/plant_model.dart';
 import 'package:plantpedia/src/models/plants_view_model.dart';
 import 'package:plantpedia/src/redux/actions/plants_actions.dart';
 import 'package:plantpedia/src/redux/states/app_state.dart';
 import 'package:plantpedia/src/redux/store.dart';
-import 'package:plantpedia/src/widgets/organisms/plant_grid.dart';
+import 'package:plantpedia/src/widgets/molecules/plant_card.dart';
 
-class PlantsConnector extends StatefulWidget {
-  PlantsConnector({Key key}) : super(key: key);
+class ConnectedPlantCard extends StatelessWidget {
+  final PlantModel plant;
 
-  @override
-  _PlantsConnectorState createState() {
-    store.dispatch(RetrievePlants());
+  ConnectedPlantCard({@required this.plant});
 
-    return _PlantsConnectorState();
-  }
-}
-
-class _PlantsConnectorState extends State<PlantsConnector> {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, PlantsViewModel>(
       converter: (store) => PlantsViewModel.build(store),
       builder: (BuildContext context, PlantsViewModel props) {
-        return PlantGrid(
-          plants: props.basicPlants.values.toList(),
-        );
+        final plantWithImage = props.plants[plant.id.toString()];
+
+        if (plantWithImage == null) {
+          store.dispatch(RetrievePlant(plant: plant));
+        }
+
+        return PlantCard(plant: plantWithImage);
       },
     );
   }

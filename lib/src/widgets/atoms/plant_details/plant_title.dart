@@ -8,12 +8,28 @@ class PlantTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      plant.scientificName,
-      style: Theme.of(context).primaryTextTheme.title.copyWith(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-          ),
+    return Container(
+      padding: EdgeInsets.only(
+        right: 5,
+        left: 5,
+        top: 2,
+        bottom: 2,
+      ),
+      child: Text(
+        plant.scientificName,
+        style: Theme.of(context).primaryTextTheme.title.copyWith(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+            ),
+      ),
+      decoration: BoxDecoration(
+        color: Theme.of(context).backgroundColor.withOpacity(0.95),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(4),
+          topRight: Radius.circular(4),
+        ),
+      ),
     );
   }
 }

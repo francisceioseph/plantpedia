@@ -17,11 +17,11 @@ class PlantModel extends Equatable {
   });
 
   PlantModel.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        scientificName = json['scientific_name'],
-        commonName = json['common_name'],
-        nativeStatus = json['native_status'],
-        images = PlantImageModel.arrayFromJson(json['images']);
+      : id = json['id'] ?? '',
+        scientificName = json['scientific_name'] ?? '',
+        commonName = json['common_name'] ?? '',
+        nativeStatus = json['native_status'] ?? '',
+        images = PlantImageModel.arrayFromJson(json['images'] ?? []);
 
   @override
   List<Object> get props =>

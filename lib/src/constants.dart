@@ -13,6 +13,7 @@ final kBackgroundColor = Color(0xffF2F2F2);
 final kBackgroundColor2 = Color(0xffF2F2F2);
 
 final kTextColor = Color(0xff252B4C);
+final kAlternateTextColor = Color(0xffF2F2F2);
 
 final kDarkPrimaryColor = Color(0xff2B304D);
 final kDarkAccentColor = Color(0xff3C4162);

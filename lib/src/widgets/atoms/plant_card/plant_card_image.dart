@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
 
-class PlantBanner extends StatelessWidget {
+class PlantCardImage extends StatelessWidget {
   final PlantModel plant;
 
-  PlantBanner({this.plant});
+  PlantCardImage({@required this.plant});
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: 0,
-      top: 0,
-      width: MediaQuery.of(context).size.width,
-      child: Hero(
-        tag: 'plant-image-${plant.id}',
-        child: FittedBox(
+    return FractionallySizedBox(
+      widthFactor: 0.9,
+      child: Container(
+        padding: EdgeInsets.all(4),
+        child: Hero(
+          tag: 'plant-image-${plant.id}',
           child: _renderImage(),
-          fit: BoxFit.fitWidth,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
         ),
       ),
     );
