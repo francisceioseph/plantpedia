@@ -13,6 +13,34 @@ class PlantDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        fit: StackFit.expand,
+        alignment: AlignmentDirectional.topStart,
+        children: <Widget>[
+          PlantBanner(plant: plant),
+          _renderPlantNames(),
+          _renderOtherPictures(),
+          PlantDetailsCard(
+            plant: plant,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _renderOtherPictures() {
+    print(plant.images.length);
+    if (plant.images.length > 1) {
+      return PlantPicturesCard(
+        images: plant.images.sublist(1),
+      );
+    }
+
+    return Container();
+  }
+
+  Widget _renderPlantNames() {
     final children = <Widget>[
       PlantTitle(plant: plant),
     ];
@@ -24,29 +52,14 @@ class PlantDetail extends StatelessWidget {
     }
 
     return Container(
-      child: Stack(
-        fit: StackFit.expand,
-        alignment: AlignmentDirectional.topStart,
-        children: <Widget>[
-          PlantBanner(plant: plant),
-          Container(
-            padding: EdgeInsets.only(
-              top: 16,
-              left: 16,
-              right: 16,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: children,
-            ),
-          ),
-          PlantPicturesCard(
-            images: plant.images,
-          ),
-          PlantDetailsCard(
-            plant: plant,
-          ),
-        ],
+      padding: EdgeInsets.only(
+        top: 16,
+        left: 16,
+        right: 16,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children,
       ),
     );
   }
