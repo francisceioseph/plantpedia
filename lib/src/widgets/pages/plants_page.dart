@@ -9,7 +9,7 @@ class PlantsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'PlantPedia',
+          'Nordestão Plantas',
         ),
       ),
       body: SafeArea(

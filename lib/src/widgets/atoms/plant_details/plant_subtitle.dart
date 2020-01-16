@@ -17,10 +17,12 @@ class PlantSubtitle extends StatelessWidget {
       ),
       child: Text(
         plant.commonName,
-        style: Theme.of(context).primaryTextTheme.title.copyWith(fontSize: 28),
+        style: Theme.of(context).primaryTextTheme.body1.copyWith(
+              fontSize: 28,
+            ),
       ),
       decoration: BoxDecoration(
-        color: Theme.of(context).backgroundColor.withOpacity(0.80),
+        color: Theme.of(context).backgroundColor.withOpacity(0.95),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(4),
           bottomRight: Radius.circular(4),

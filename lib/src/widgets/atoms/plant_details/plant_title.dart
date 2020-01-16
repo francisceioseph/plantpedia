@@ -8,9 +8,10 @@ class PlantTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomBorderRadius = this.plant.commonName.isEmpty ? 4.0 : 0.0;
     return Container(
       padding: EdgeInsets.only(
-        right: 5,
+        right: 10,
         left: 5,
         top: 2,
         bottom: 2,
@@ -28,6 +29,8 @@ class PlantTitle extends StatelessWidget {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(4),
           topRight: Radius.circular(4),
+          bottomLeft: Radius.circular(bottomBorderRadius),
+          bottomRight: Radius.circular(bottomBorderRadius),
         ),
       ),
     );

@@ -18,18 +18,18 @@ class PlantCardInfo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
+                  plant.scientificName,
+                  style: Theme.of(context).primaryTextTheme.title.copyWith(
+                      fontSize: 22,
+                      fontWeight: FontWeight.normal,
+                      fontStyle: FontStyle.italic),
+                ),
+                Text(
                   plant.commonName,
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .title
-                      .copyWith(fontSize: 22),
-                ),
-                Text(
-                  plant.scientificName,
-                  style: Theme.of(context)
-                      .primaryTextTheme
                       .body1
-                      .copyWith(fontSize: 18, fontStyle: FontStyle.italic),
+                      .copyWith(fontSize: 20),
                 ),
               ],
             ),

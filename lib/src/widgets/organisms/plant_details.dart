@@ -13,6 +13,16 @@ class PlantDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final children = <Widget>[
+      PlantTitle(plant: plant),
+    ];
+
+    if (plant.commonName.isNotEmpty) {
+      children.add(
+        PlantSubtitle(plant: plant),
+      );
+    }
+
     return Container(
       child: Stack(
         fit: StackFit.expand,
@@ -27,10 +37,7 @@ class PlantDetail extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                PlantTitle(plant: plant),
-                PlantSubtitle(plant: plant),
-              ],
+              children: children,
             ),
           ),
           PlantPicturesCard(

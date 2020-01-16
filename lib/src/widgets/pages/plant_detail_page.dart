@@ -7,8 +7,11 @@ class PlantDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: false,
       appBar: AppBar(
         title: null,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
         child: Center(
