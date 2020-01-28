@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
-import 'package:plantpedia/src/widgets/atoms/blurred_container.dart';
 
 class PlantDetailsCard extends StatelessWidget {
   final PlantModel plant;
@@ -18,28 +18,37 @@ class PlantDetailsCard extends StatelessWidget {
     return Positioned(
       left: 0,
       bottom: 0,
-      child: BlurredContainer(
+      child: Container(
+        padding: EdgeInsets.only(
+          right: 16,
+          left: 16,
+        ),
+        alignment: Alignment.topCenter,
         height: 200,
         width: MediaQuery.of(context).size.width,
-        sigmaX: 0,
-        sigmaY: 0,
-        color: Colors.white,
-        opacity: 1,
-        borderRadius: 16,
-        child: Container(
-          padding: EdgeInsets.all(16),
-          alignment: Alignment.topLeft,
-          child: ListView(
-            children: <Widget>[
-              Text(
-                'About this plant',
-                style: textStyle,
-              ),
-              Html(
-                data: plant.description,
-              )
-            ],
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.9),
+          borderRadius: BorderRadius.all(
+            Radius.circular(16),
           ),
+        ),
+        child: ListView(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                FontAwesomeIcons.chevronUp,
+                color: Colors.grey[400],
+              ),
+              onPressed: () {},
+            ),
+            Text(
+              'About this plant',
+              style: textStyle,
+            ),
+            Html(
+              data: plant.description,
+            )
+          ],
         ),
       ),
     );
