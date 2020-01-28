@@ -9,7 +9,15 @@ class AppRouter {
   MaterialPageRoute builder(RouteSettings settings) {
     String token = store.state.authState.token;
 
-    if (token.length == 0 || settings.name == LoginPage.routeName) {
+    if (token.length == 0) {
+      return _unprotectedRoutes(settings);
+    }
+
+    return _protectedRoutes(settings);
+  }
+
+  MaterialPageRoute _unprotectedRoutes(RouteSettings settings) {
+    if (settings.name == LoginPage.routeName) {
       return MaterialPageRoute(
         builder: (BuildContext context) {
           return LoginPage();
@@ -17,14 +25,14 @@ class AppRouter {
       );
     }
 
-    if (settings.name == RegisterPage.routeName) {
-      return MaterialPageRoute(
-        builder: (BuildContext context) {
-          return RegisterPage();
-        },
-      );
-    }
+    return MaterialPageRoute(
+      builder: (BuildContext context) {
+        return RegisterPage();
+      },
+    );
+  }
 
+  MaterialPageRoute _protectedRoutes(RouteSettings settings) {
     if (settings.name == PlantDetailPage.routeName) {
       return MaterialPageRoute(
         builder: (BuildContext context) {
