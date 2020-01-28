@@ -4,8 +4,6 @@ import 'package:plantpedia/src/redux/actions/auth_actions.dart';
 import 'package:plantpedia/src/redux/store.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
-import 'package:plantpedia/src/widgets/pages/plants_page.dart';
-import 'package:plantpedia/src/widgets/templates/loading_dialog.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -89,26 +87,12 @@ class _LoginFormState extends State<LoginForm> {
 
   void _onSubmit() {
     if (_formKey.currentState.validate()) {
-      showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) {
-            return LoadingDialog();
-          });
-
       _formKey.currentState.save();
-
-      Future.delayed(Duration(seconds: 1)).then((_) {
-        Navigator.of(context).pop();
-        Navigator.of(context).pushNamedAndRemoveUntil(
-          PlantsPage.routeName,
-          (_) => false,
-        );
-      });
 
       store.dispatch(Login(
         username: _email,
         password: _password,
+        context: context,
       ));
     }
   }
