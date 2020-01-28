@@ -21,7 +21,7 @@ class PlantModel extends Equatable {
         scientificName = json['scientific_name'] ?? '',
         commonName = json['common_name'] ?? '',
         nativeStatus = json['native_status'] ?? '',
-        images = PlantImageModel.arrayFromJson(json['images'] ?? []);
+        images = PlantImageModel.arrayFromJson(json['species_images'] ?? []);
 
   @override
   List<Object> get props =>
