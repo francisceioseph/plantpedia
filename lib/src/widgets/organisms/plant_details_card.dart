@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
 import 'package:plantpedia/src/widgets/atoms/blurred_container.dart';
 
@@ -28,14 +29,15 @@ class PlantDetailsCard extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(16),
           alignment: Alignment.topLeft,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: <Widget>[
               Text(
                 'About this plant',
                 style: textStyle,
               ),
+              Html(
+                data: plant.description,
+              )
             ],
           ),
         ),
