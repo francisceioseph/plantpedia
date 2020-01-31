@@ -1,8 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/constants.dart';
 import 'package:plantpedia/src/models/plant_image_model.dart';
+import 'package:plantpedia/src/utils/screen.dart';
 import 'package:plantpedia/src/widgets/atoms/blur_box.dart';
+import 'package:plantpedia/src/widgets/atoms/placeholder_image.dart';
 import 'package:plantpedia/src/widgets/molecules/plant_pictures_list.dart';
 
 class PlantPicturesCard extends StatefulWidget {
@@ -18,7 +22,6 @@ class PlantPicturesCard extends StatefulWidget {
 
 class _PlantPicturesCardState extends State<PlantPicturesCard> {
   static const double kMinHeight = 370;
-
   double _height = kMinHeight;
 
   @override
@@ -48,9 +51,7 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
             children: <Widget>[
               _renderUpDownButton(),
               _renderCardTitle(),
-              PlantPicturesList(
-                images: widget.images,
-              ),
+              _renderPlantImages(),
             ],
           ),
         ),
@@ -66,7 +67,7 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
         isExpanded ? FontAwesomeIcons.chevronDown : FontAwesomeIcons.chevronUp,
         color: Colors.grey[400],
       ),
-      splashColor: Colors.blue,
+      splashColor: Colors.grey[350],
       onPressed: () {
         final appBarHeight = AppBar().preferredSize.height;
         final screenHeight = MediaQuery.of(context).size.height;
@@ -89,6 +90,53 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
     return Text(
       'More images',
       style: textStyle,
+    );
+  }
+
+  Widget _renderPlantImages() {
+    if (_height > kMinHeight) {
+      return _renderPlantsImageCarousel();
+    }
+
+    return _renderPlantsImageList();
+  }
+
+  Widget _renderPlantsImageList() {
+    return PlantPicturesList(
+      images: widget.images,
+    );
+  }
+
+  Widget _renderPlantsImageCarousel() {
+    return Container(
+      alignment: Alignment.topCenter,
+      margin: EdgeInsets.only(
+        top: 16,
+      ),
+      child: CarouselSlider.builder(
+        itemCount: widget.images.length,
+        height: _height - 340,
+        viewportFraction: 0.8,
+        enableInfiniteScroll: false,
+        itemBuilder: (BuildContext context, int index) {
+          final image = widget.images[index];
+
+          return Container(
+            margin: EdgeInsets.symmetric(horizontal: 5.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(12),
+              ),
+            ),
+            child: CachedNetworkImage(
+              fit: BoxFit.fill,
+              imageUrl: image.url,
+              placeholder: (context, url) => PlaceholderImage(),
+              errorWidget: (context, url, error) => PlaceholderImage(),
+            ),
+          );
+        },
+      ),
     );
   }
 }

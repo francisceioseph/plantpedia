@@ -85,6 +85,8 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
 
   Widget _renderHtmlDescription() {
     return Html(
+      customTextAlign: (node) => TextAlign.justify,
+      customTextStyle: (node, style) => style.copyWith(fontSize: 20),
       data: widget.plant.description,
     );
   }
