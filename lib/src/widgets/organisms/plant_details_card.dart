@@ -21,7 +21,9 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
       left: 0,
       bottom: 0,
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 400),
+        duration: Duration(
+          milliseconds: 400,
+        ),
         height: _height,
         padding: EdgeInsets.only(
           right: 16,
