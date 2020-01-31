@@ -1,9 +1,8 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:plantpedia/src/redux/store.dart';
+import 'package:plantpedia/src/utils/env.dart';
 
-final kBaseUrl = DotEnv().env['API_HOST'];
-final kApiToken = DotEnv().env['API_TOKEN'];
+final kBaseUrl = Env.get('API_HOST');
 
 class PlantRepository {
   static Future<http.Response> getPlants({int page = 1}) {

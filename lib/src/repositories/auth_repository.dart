@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:plantpedia/src/utils/env.dart';
 
-final kBaseUrl = DotEnv().env['API_HOST'];
+final kBaseUrl = Env.get('API_HOST');
 
 class AuthRepository {
   static Future<http.Response> login(String username, String password) {
