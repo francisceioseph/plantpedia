@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
+import 'package:plantpedia/src/widgets/atoms/placeholder_image.dart';
 
 class PlantBanner extends StatelessWidget {
   final PlantModel plant;
@@ -24,14 +26,15 @@ class PlantBanner extends StatelessWidget {
 
   _renderImage() {
     if (plant.images.isEmpty) {
-      return Image.asset('assets/images/placeholder.jpg');
+      return PlaceholderImage();
     }
 
-    return FadeInImage.assetNetwork(
-      fadeInDuration: Duration(milliseconds: 200),
-      fadeOutDuration: Duration(milliseconds: 200),
-      placeholder: 'assets/images/placeholder.jpg',
-      image: plant.images[0].url,
+    final imageUrl = plant.images.first.url;
+
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
+      placeholder: (context, url) => PlaceholderImage(),
+      errorWidget: (context, url, error) => PlaceholderImage(),
     );
   }
 }

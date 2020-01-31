@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/widgets/atoms/placeholder_image.dart';
 
 const kThumbnailSize = 80;
 
@@ -15,15 +17,13 @@ class NetworkThumbnail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInImage.assetNetwork(
-      fadeInDuration: Duration(milliseconds: 200),
-      fadeOutDuration: Duration(milliseconds: 200),
-      placeholder: 'assets/images/placeholder.jpg',
-      placeholderCacheHeight: this.height,
-      placeholderCacheWidth: this.width,
-      image: imageUrl,
-      imageCacheHeight: this.height,
-      imageCacheWidth: this.width,
+    return Container(
+      margin: EdgeInsets.all(4),
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        placeholder: (context, url) => PlaceholderImage(),
+        errorWidget: (context, url, error) => PlaceholderImage(),
+      ),
     );
   }
 }
