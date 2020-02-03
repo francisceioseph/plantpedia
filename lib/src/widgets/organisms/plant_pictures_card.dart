@@ -82,10 +82,12 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
   }
 
   Widget _renderCardTitle() {
-    final textStyle = Theme.of(context)
-        .primaryTextTheme
-        .title
-        .copyWith(fontWeight: FontWeight.bold, color: kAlternateTextColor);
+    final textStyle = Theme.of(context).primaryTextTheme.title.copyWith(
+          fontFamily: 'JosefinSans',
+          fontSize: 21,
+          fontWeight: FontWeight.bold,
+          color: kAlternateTextColor,
+        );
     return Text(
       'More images',
       style: textStyle,

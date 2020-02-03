@@ -72,10 +72,11 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
   }
 
   Widget _renderDescriptionTitle() {
-    final textStyle = Theme.of(context)
-        .primaryTextTheme
-        .title
-        .copyWith(fontWeight: FontWeight.bold);
+    final textStyle = Theme.of(context).primaryTextTheme.title.copyWith(
+          fontFamily: 'JosefinSans',
+          fontSize: 21,
+          fontWeight: FontWeight.bold,
+        );
 
     return Text(
       'About this plant',

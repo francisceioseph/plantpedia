@@ -12,12 +12,13 @@ class PlantSubtitle extends StatelessWidget {
       padding: EdgeInsets.only(
         right: 5,
         left: 5,
-        top: 2,
+        top: 5,
         bottom: 2,
       ),
       child: Text(
         plant.commonName,
         style: Theme.of(context).primaryTextTheme.body1.copyWith(
+              fontFamily: 'JosefinSans',
               fontSize: 28,
             ),
       ),

@@ -19,9 +19,9 @@ class PlantTitle extends StatelessWidget {
       child: Text(
         plant.scientificName,
         style: Theme.of(context).primaryTextTheme.title.copyWith(
+              fontFamily: 'JosefinSans',
               fontSize: 32,
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w600,
             ),
       ),
       decoration: BoxDecoration(

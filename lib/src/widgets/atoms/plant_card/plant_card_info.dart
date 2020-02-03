@@ -20,16 +20,20 @@ class PlantCardInfo extends StatelessWidget {
                 Text(
                   plant.scientificName,
                   style: Theme.of(context).primaryTextTheme.title.copyWith(
-                      fontSize: 22,
-                      fontWeight: FontWeight.normal,
-                      fontStyle: FontStyle.italic),
+                        fontFamily: 'JosefinSans',
+                        fontSize: 22,
+                        fontWeight: FontWeight.normal,
+                      ),
                 ),
-                Text(
-                  plant.commonName,
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .body1
-                      .copyWith(fontSize: 20),
+                Container(
+                  margin: EdgeInsets.only(top: 8),
+                  child: Text(
+                    plant.commonName,
+                    style: Theme.of(context).primaryTextTheme.body1.copyWith(
+                          fontFamily: 'JosefinSans',
+                          fontSize: 20,
+                        ),
+                  ),
                 ),
               ],
             ),
