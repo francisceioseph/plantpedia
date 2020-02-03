@@ -9,7 +9,7 @@ class PlantDetailPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        title: Text('Details'),
+        title: null,
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),

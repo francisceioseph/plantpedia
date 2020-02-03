@@ -41,7 +41,7 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
           alignment: Alignment.topCenter,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            color: Colors.grey[900].withOpacity(0.75),
+            color: Color(0xff0b6623).withOpacity(0.75),
             borderRadius: BorderRadius.all(
               Radius.circular(16),
             ),
@@ -129,11 +129,18 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
                 Radius.circular(12),
               ),
             ),
-            child: CachedNetworkImage(
-              fit: BoxFit.fill,
-              imageUrl: image.url,
-              placeholder: (context, url) => PlaceholderImage(),
-              errorWidget: (context, url, error) => PlaceholderImage(),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  16,
+                ),
+              ),
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: image.url,
+                placeholder: (context, url) => PlaceholderImage(),
+                errorWidget: (context, url, error) => PlaceholderImage(),
+              ),
             ),
           );
         },
