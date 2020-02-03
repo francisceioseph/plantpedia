@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plantpedia/src/utils/shared_validators.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
 import 'package:plantpedia/src/widgets/pages/plants_page.dart';
@@ -127,6 +128,11 @@ class _RegisterFormState extends State<RegisterForm> {
     if (value.isEmpty) {
       return 'Email is a required field';
     }
+
+    if (!SharedValidators.validateEmail(value)) {
+      return 'It must be a valid email';
+    }
+
     return null;
   }
 
