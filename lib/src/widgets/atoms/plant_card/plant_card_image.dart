@@ -10,18 +10,17 @@ class PlantCardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FractionallySizedBox(
-      widthFactor: 0.9,
-      child: Container(
-        padding: EdgeInsets.all(4),
-        child: Hero(
-          tag: 'plant-image-${plant.id}',
-          child: _renderImage(),
-        ),
-        decoration: BoxDecoration(
+    return Container(
+      padding: EdgeInsets.only(
+        bottom: 8,
+      ),
+      child: Hero(
+        tag: 'plant-image-${plant.id}',
+        child: ClipRRect(
           borderRadius: BorderRadius.all(
-            Radius.circular(12),
+            Radius.circular(8),
           ),
+          child: _renderImage(),
         ),
       ),
     );
