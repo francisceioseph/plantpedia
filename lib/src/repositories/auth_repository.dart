@@ -26,4 +26,29 @@ class AuthRepository {
       body: jsonBody,
     );
   }
+
+  static Future<http.Response> register(
+    String email,
+    String password,
+    String passwordConfirmation,
+  ) {
+    final body = {
+      "user": {
+        "email": email,
+        "password": password,
+        "password_confirmation": passwordConfirmation,
+      }
+    };
+
+    final jsonBody = json.encode(body);
+
+    return http.post(
+      '$kBaseUrl/users/signup.json',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*',
+      },
+      body: jsonBody,
+    );
+  }
 }

@@ -32,7 +32,7 @@ class Login extends ReduxAction<AppState> {
       if (token == null) {
         throw (body['error']);
       } else {
-        store.dispatch(LoginSuccess(
+        store.dispatch(AuthSuccess(
           token: token,
           user: body,
         ));
@@ -41,18 +41,18 @@ class Login extends ReduxAction<AppState> {
       }
     } catch (e) {
       store.dispatch(StopLoading(context: context));
-      store.dispatch(LoginError(context: context));
+      store.dispatch(AuthError(context: context));
     }
 
     return null;
   }
 }
 
-class LoginSuccess extends ReduxAction<AppState> {
+class AuthSuccess extends ReduxAction<AppState> {
   final String token;
   final dynamic user;
 
-  LoginSuccess({this.token, this.user});
+  AuthSuccess({this.token, this.user});
 
   AppState reduce() {
     final AuthState authState = state.authState.copy(
@@ -64,10 +64,14 @@ class LoginSuccess extends ReduxAction<AppState> {
   }
 }
 
-class LoginError extends ReduxAction<AppState> {
+class AuthError extends ReduxAction<AppState> {
   BuildContext context;
+  List<String> errors;
 
-  LoginError({@required this.context});
+  AuthError({
+    @required this.context,
+    this.errors,
+  });
 
   AppState reduce() {
     showDialog(
@@ -76,7 +80,7 @@ class LoginError extends ReduxAction<AppState> {
           return AlertDialog(
             title: Text('Error'),
             content: Text(
-              'Cannot login. Please, check your credentials and try again later',
+              'An unexpected error happened. Please, check your credentials and try again later',
             ),
             actions: <Widget>[
               FlatButton(
@@ -88,6 +92,54 @@ class LoginError extends ReduxAction<AppState> {
             ],
           );
         });
+
+    return null;
+  }
+}
+
+class Register extends ReduxAction<AppState> {
+  String name;
+  String email;
+  String password;
+  String passwordConfirmation;
+  BuildContext context;
+
+  Register({
+    this.name,
+    this.email,
+    this.password,
+    this.passwordConfirmation,
+    this.context,
+  });
+
+  Future<AppState> reduce() async {
+    store.dispatch(StartLoading(context: context));
+
+    try {
+      final res = await AuthRepository.register(
+        email,
+        password,
+        passwordConfirmation,
+      );
+
+      final body = json.decode(res.body);
+
+      if (body['id'] == null) {
+        throw (body['errors']);
+      } else {
+        store.dispatch(StopLoading(context: context));
+        store.dispatch(
+          Login(
+            username: email,
+            password: password,
+            context: context,
+          ),
+        );
+      }
+    } catch (e) {
+      store.dispatch(StopLoading(context: context));
+      store.dispatch(AuthError(context: context, errors: e));
+    }
 
     return null;
   }

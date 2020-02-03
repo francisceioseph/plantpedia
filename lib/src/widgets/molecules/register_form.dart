@@ -1,12 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plantpedia/src/redux/actions/auth_actions.dart';
+import 'package:plantpedia/src/redux/store.dart';
 import 'package:plantpedia/src/utils/shared_validators.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
-import 'package:plantpedia/src/widgets/pages/plants_page.dart';
-import 'package:plantpedia/src/widgets/templates/loading_dialog.dart';
 
 class RegisterForm extends StatefulWidget {
   @override
@@ -22,6 +20,7 @@ class _RegisterFormState extends State<RegisterForm> {
   String _displayName;
   String _email;
   String _password;
+  String _passwordConfirmation;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +93,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 focusNode: _passwordConfirmationFocusNode,
                 onFieldSaved: (v) {
                   setState(() {
-                    _password = v;
+                    _passwordConfirmation = v;
                   });
                 },
               ),
@@ -129,7 +128,7 @@ class _RegisterFormState extends State<RegisterForm> {
       return 'Email is a required field';
     }
 
-    if (!SharedValidators.validateEmail(value)) {
+    if (!SharedValidators.validateEmail(value.trim())) {
       return 'It must be a valid email';
     }
 
@@ -162,70 +161,17 @@ class _RegisterFormState extends State<RegisterForm> {
 
   void _onSubmit() {
     if (_formKey.currentState.validate()) {
-      showDialog(
+      _formKey.currentState.save();
+
+      store.dispatch(
+        Register(
+          name: _displayName.trim(),
+          email: _email.trim(),
+          password: _password.trim(),
+          passwordConfirmation: _passwordConfirmation.trim(),
           context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) {
-            return LoadingDialog();
-          });
-
-      Future.delayed(Duration(seconds: 1)).then((value) {
-        print(_displayName);
-        print(_email);
-        print(_password);
-
-        Navigator.of(context).pop();
-        Navigator.of(context).pushNamedAndRemoveUntil(
-          PlantsPage.routeName,
-          (_) => false,
-        );
-      });
-
-      // final bloc = AppBlocProvider.of(context).authBloc;
-      // StreamSubscription<FirebaseUser> subscription;
-
-      // _formKey.currentState.save();
-
-      // bloc.createUser(_displayName, _email, _password);
-
-      // subscription = bloc.user.listen(
-      //   (user) {
-      //     subscription.cancel();
-      //     Navigator.of(context).pop();
-      //     Navigator.of(context).pushNamedAndRemoveUntil('/', (_) => false);
-      //   },
-      //   onError: (error) {
-      //     Navigator.of(context).pop();
-      //     _buildErrorAlert(context, error, subscription);
-      //   },
-      // );
+        ),
+      );
     }
   }
-
-  // Future<dynamic> _buildErrorAlert(
-  //   BuildContext context,
-  //   dynamic error,
-  //   StreamSubscription<FirebaseUser> subscription,
-  // ) {
-  //   return showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         title: Text('Error'),
-  //         content: Text(
-  //           "It's not possible to sign up now. Please, try again later",
-  //         ),
-  //         actions: <Widget>[
-  //           FlatButton(
-  //             child: Text('DISMISS'),
-  //             onPressed: () {
-  //               subscription.cancel();
-  //               Navigator.of(context).pop();
-  //             },
-  //           )
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
 }
