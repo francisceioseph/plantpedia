@@ -29,14 +29,19 @@ class Login extends ReduxAction<AppState> {
       final body = json.decode(res.body);
       final token = res.headers['authorization'];
 
-      store.dispatch(LoginSuccess(
-        token: token,
-        user: body,
-      ));
-      store.dispatch(StopLoading(context: context));
-      store.dispatch(NavigateToRoot(context: context));
+      if (token == null) {
+        throw (body['error']);
+      } else {
+        store.dispatch(LoginSuccess(
+          token: token,
+          user: body,
+        ));
+        store.dispatch(StopLoading(context: context));
+        store.dispatch(NavigateToRoot(context: context));
+      }
     } catch (e) {
       store.dispatch(StopLoading(context: context));
+      store.dispatch(LoginError(context: context));
     }
 
     return null;
@@ -56,5 +61,34 @@ class LoginSuccess extends ReduxAction<AppState> {
     );
 
     return state.copy(authState: authState);
+  }
+}
+
+class LoginError extends ReduxAction<AppState> {
+  BuildContext context;
+
+  LoginError({@required this.context});
+
+  AppState reduce() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Text(
+              'Cannot login. Please, check your credentials and try again later',
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('close'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
+
+    return null;
   }
 }
