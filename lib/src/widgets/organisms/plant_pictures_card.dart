@@ -25,6 +25,10 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
 
   @override
   Widget build(BuildContext context) {
+    final backgroundColor = Theme.of(context).brightness == Brightness.light
+        ? Color(0xff0b6623)
+        : Color(0xff4c5c68);
+
     return Positioned(
       left: 0,
       bottom: 0,
@@ -41,7 +45,7 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
           alignment: Alignment.topCenter,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            color: Color(0xff0b6623).withOpacity(0.75),
+            color: backgroundColor.withOpacity(0.75),
             borderRadius: BorderRadius.all(
               Radius.circular(16),
             ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/redux/store.dart';
+import 'package:plantpedia/src/widgets/pages/main_page.dart';
 import 'package:plantpedia/src/widgets/pages/plant_detail_page.dart';
-import 'package:plantpedia/src/widgets/pages/plants_page.dart';
 import 'package:plantpedia/src/widgets/pages/login_page.dart';
-import 'package:plantpedia/src/widgets/pages/RegisterPage.dart';
+import 'package:plantpedia/src/widgets/pages/register_page.dart';
 
 class AppRouter {
   MaterialPageRoute builder(RouteSettings settings) {
@@ -43,7 +43,7 @@ class AppRouter {
 
     return MaterialPageRoute(
       builder: (BuildContext context) {
-        return PlantsPage();
+        return MainPage();
       },
     );
   }
