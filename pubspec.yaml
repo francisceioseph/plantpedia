@@ -48,21 +48,32 @@ flutter:
   fonts:
     - family: SF Pro Display
       fonts:
-        - asset: fonts/SF-Pro-Display-Ultralight.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Ultralight.otf
           weight: 100
-        - asset: fonts/SF-Pro-Display-Thin.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Thin.otf
           weight: 200
-        - asset: fonts/SF-Pro-Display-Light.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Light.otf
           weight: 300
-        - asset: fonts/SF-Pro-Display-Regular.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Regular.otf
           weight: 400
-        - asset: fonts/SF-Pro-Display-Medium.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Medium.otf
           weight: 500
-        - asset: fonts/SF-Pro-Display-Semibold.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Semibold.otf
           weight: 600
-        - asset: fonts/SF-Pro-Display-Bold.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Bold.otf
           weight: 700
-        - asset: fonts/SF-Pro-Display-Heavy.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Heavy.otf
           weight: 800
-        - asset: fonts/SF-Pro-Display-Black.otf
+        - asset: assets/fonts/SanFrancisco/SF-Pro-Display-Black.otf
           weight: 900
+    - family: JosefinSans
+      fonts:
+      - asset: assets/fonts/Josefin/JosefinSans-Bold.ttf
+        weight: 900
+      - asset: assets/fonts/Josefin/JosefinSans-SemiBold.ttf
+        weight: 600
+      - asset: assets/fonts/Josefin/JosefinSans-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/Josefin/JosefinSans-Thin.ttf
+        weight: 200
+        

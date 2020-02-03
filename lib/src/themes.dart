@@ -10,9 +10,9 @@ final kLightTheme = ThemeData(
     textTheme: TextTheme(
       title: TextStyle(
         color: kTerciaryColor,
-        fontFamily: 'SF Pro Display',
+        fontFamily: 'JosefinSans',
         fontSize: 24,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
       ),
     ),
   ),
@@ -49,10 +49,10 @@ final kDarkTheme = ThemeData(
     color: kDarkAccentColor,
     textTheme: TextTheme(
       title: TextStyle(
-        color: kDarkTextColor,
-        fontFamily: 'SF Pro Display',
+        color: kTerciaryColor,
+        fontFamily: 'JosefinSans',
         fontSize: 24,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
       ),
     ),
   ),

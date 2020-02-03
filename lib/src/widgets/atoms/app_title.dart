@@ -6,7 +6,10 @@ class AppTitle extends StatelessWidget {
     return Container(
       child: Text(
         'Plantpedia',
-        style: Theme.of(context).primaryTextTheme.title.copyWith(fontSize: 24),
+        style: Theme.of(context).primaryTextTheme.title.copyWith(
+            fontSize: 28,
+            fontFamily: 'JosefinSans',
+            fontWeight: FontWeight.w600),
       ),
     );
   }
