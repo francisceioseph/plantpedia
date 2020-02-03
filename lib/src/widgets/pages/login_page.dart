@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/widgets/atoms/app_logo.dart';
+import 'package:plantpedia/src/widgets/molecules/app_logo.dart';
 import 'package:plantpedia/src/widgets/molecules/login_form.dart';
 import 'package:plantpedia/src/widgets/molecules/login_register_section.dart';
 import 'package:plantpedia/src/widgets/molecules/login_social.dart';

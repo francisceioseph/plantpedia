@@ -32,7 +32,7 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
         alignment: Alignment.topCenter,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.all(
             Radius.circular(16),
           ),
@@ -87,7 +87,10 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
   Widget _renderHtmlDescription() {
     return Html(
       customTextAlign: (node) => TextAlign.justify,
-      customTextStyle: (node, style) => style.copyWith(fontSize: 20),
+      customTextStyle: (node, style) =>
+          Theme.of(context).primaryTextTheme.body1.copyWith(
+                fontSize: 24,
+              ),
       data: widget.plant.description,
     );
   }

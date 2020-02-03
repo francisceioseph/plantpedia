@@ -7,10 +7,10 @@ import 'package:plantpedia/src/redux/states/app_state.dart';
 import 'package:plantpedia/src/redux/store.dart';
 import 'package:plantpedia/src/widgets/molecules/plant_card.dart';
 
-class ConnectedPlantCard extends StatelessWidget {
+class PlantCardConnector extends StatelessWidget {
   final PlantModel plant;
 
-  ConnectedPlantCard({@required this.plant});
+  PlantCardConnector({@required this.plant});
 
   @override
   Widget build(BuildContext context) {

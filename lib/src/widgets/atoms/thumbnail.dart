@@ -19,10 +19,14 @@ class NetworkThumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(4),
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        placeholder: (context, url) => PlaceholderImage(),
-        errorWidget: (context, url, error) => PlaceholderImage(),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          imageUrl: imageUrl,
+          placeholder: (context, url) => PlaceholderImage(),
+          errorWidget: (context, url, error) => PlaceholderImage(),
+        ),
       ),
     );
   }

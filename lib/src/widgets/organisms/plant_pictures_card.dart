@@ -130,14 +130,10 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
               ),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  16,
-                ),
-              ),
+              borderRadius: BorderRadius.all(Radius.circular(16)),
               child: CachedNetworkImage(
-                fit: BoxFit.fill,
                 imageUrl: image.url,
+                fit: BoxFit.cover,
                 placeholder: (context, url) => PlaceholderImage(),
                 errorWidget: (context, url, error) => PlaceholderImage(),
               ),

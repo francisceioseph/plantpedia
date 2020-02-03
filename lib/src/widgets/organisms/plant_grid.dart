@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
-import 'package:plantpedia/src/widgets/molecules/connected_plant_card.dart';
+import 'package:plantpedia/src/widgets/organisms/plant_card_connector.dart';
 
 class PlantGrid extends StatelessWidget {
   final List<PlantModel> plants;
@@ -21,7 +21,7 @@ class PlantGrid extends StatelessWidget {
             crossAxisSpacing: 8,
             itemCount: plants.length,
             itemBuilder: (BuildContext context, int index) {
-              return ConnectedPlantCard(plant: plants[index]);
+              return PlantCardConnector(plant: plants[index]);
             },
             staggeredTileBuilder: (int index) {
               return StaggeredTile.fit(2);

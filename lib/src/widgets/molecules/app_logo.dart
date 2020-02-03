@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/widgets/atoms/app_title.dart';
+import 'package:plantpedia/src/widgets/atoms/app_logo_image.dart';
+import 'package:plantpedia/src/widgets/atoms/app_logo_text.dart';
 
 class AppLogo extends StatelessWidget {
   @override
@@ -10,20 +11,9 @@ class AppLogo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _renderLogoImage(),
-          AppTitle(),
+          AppLogoImage(),
+          AppLogoText(),
         ],
-      ),
-    );
-  }
-
-  _renderLogoImage() {
-    return Container(
-      height: 50,
-      width: 50,
-      margin: EdgeInsets.only(right: 16),
-      child: CircleAvatar(
-        backgroundImage: AssetImage('assets/images/tropical-leaves.jpg'),
       ),
     );
   }

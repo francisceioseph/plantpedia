@@ -20,13 +20,8 @@ class PlantPicturesList extends StatelessWidget {
           crossAxisCount: 1,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return ClipRRect(
-            borderRadius: BorderRadius.all(
-              Radius.circular(36),
-            ),
-            child: NetworkThumbnail(
-              imageUrl: images[index].url,
-            ),
+          return NetworkThumbnail(
+            imageUrl: images[index].url,
           );
         },
       ),
