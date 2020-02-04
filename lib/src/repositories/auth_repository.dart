@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:plantpedia/src/redux/store.dart';
 import 'package:plantpedia/src/utils/env.dart';
 
 final kBaseUrl = Env.get('API_HOST');
@@ -24,6 +25,19 @@ class AuthRepository {
         'Accept': '*/*',
       },
       body: jsonBody,
+    );
+  }
+
+  static Future<http.Response> logout() {
+    String token = store.state.authState.token;
+
+    return http.delete(
+      '$kBaseUrl/users/logout.json',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*',
+        'authorization': token
+      },
     );
   }
 

@@ -37,7 +37,7 @@ class Login extends ReduxAction<AppState> {
           user: body,
         ));
         store.dispatch(StopLoading(context: context));
-        store.dispatch(NavigateToRoot(context: context));
+        store.dispatch(NavigateToLogin(context: context));
       }
     } catch (e) {
       store.dispatch(StopLoading(context: context));
@@ -140,6 +140,61 @@ class Register extends ReduxAction<AppState> {
       store.dispatch(StopLoading(context: context));
       store.dispatch(AuthError(context: context, errors: e));
     }
+
+    return null;
+  }
+}
+
+class Logout extends ReduxAction<AppState> {
+  final BuildContext context;
+
+  Logout({this.context});
+
+  Future<AppState> reduce() async {
+    store.dispatch(StartLoading(context: context));
+
+    try {
+      await AuthRepository.logout();
+      store.dispatch(LogoutSuccess());
+      store.dispatch(StopLoading(context: context));
+      store.dispatch(NavigateToLogin(context: context));
+    } catch (e) {
+      store.dispatch(LogoutError(context: context));
+      store.dispatch(StopLoading(context: context));
+    }
+
+    return null;
+  }
+}
+
+class LogoutSuccess extends ReduxAction<AppState> {
+  AppState reduce() {
+    final authState = AuthState.initialState();
+    return state.copy(authState: authState);
+  }
+}
+
+class LogoutError extends ReduxAction<AppState> {
+  BuildContext context;
+
+  LogoutError({@required this.context});
+
+  AppState reduce() {
+    showDialog(
+      context: context,
+      child: AlertDialog(
+        title: Text('Warning'),
+        content: Text('Cannot do logout now, please try again later'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('close'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
 
     return null;
   }
