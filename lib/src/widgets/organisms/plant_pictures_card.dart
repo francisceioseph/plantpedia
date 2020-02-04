@@ -65,23 +65,30 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
   get isExpanded => _height > kMinHeight;
 
   Widget _renderUpDownButton() {
-    return IconButton(
-      icon: Icon(
-        isExpanded ? FontAwesomeIcons.chevronDown : FontAwesomeIcons.chevronUp,
-        color: Colors.grey[400],
-      ),
-      splashColor: Colors.grey[350],
-      onPressed: () {
-        final appBarHeight = AppBar().preferredSize.height;
-        final screenHeight = MediaQuery.of(context).size.height;
-
-        final double newHeight =
-            (isExpanded) ? kMinHeight : screenHeight - appBarHeight - 24;
-
-        setState(() {
-          _height = newHeight;
-        });
+    return GestureDetector(
+      onVerticalDragUpdate: (DragUpdateDetails details) {
+        _setHeightForDragDirection(details.localPosition.dy);
       },
+      child: IconButton(
+        icon: Icon(
+          isExpanded
+              ? FontAwesomeIcons.chevronDown
+              : FontAwesomeIcons.chevronUp,
+          color: Colors.grey[400],
+        ),
+        splashColor: Colors.grey[350],
+        onPressed: () {
+          final appBarHeight = AppBar().preferredSize.height;
+          final screenHeight = MediaQuery.of(context).size.height;
+
+          final double newHeight =
+              (isExpanded) ? kMinHeight : screenHeight - appBarHeight - 24;
+
+          setState(() {
+            _height = newHeight;
+          });
+        },
+      ),
     );
   }
 
@@ -146,5 +153,25 @@ class _PlantPicturesCardState extends State<PlantPicturesCard> {
         },
       ),
     );
+  }
+
+  get appBarHeight {
+    return AppBar().preferredSize.height;
+  }
+
+  get screenHeight {
+    return MediaQuery.of(context).size.height;
+  }
+
+  double get maxHeight => this.screenHeight - this.appBarHeight - 36.0;
+
+  void _setHeightForDragDirection(double dy) {
+    setState(() {
+      if (dy < 0) {
+        _height = maxHeight;
+      } else {
+        _height = kMinHeight;
+      }
+    });
   }
 }

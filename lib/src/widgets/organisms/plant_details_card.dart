@@ -51,23 +51,27 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
   get isExpanded => _height > 200;
 
   Widget _renderUpDownButton() {
-    return IconButton(
-      icon: Icon(
-        isExpanded ? FontAwesomeIcons.chevronDown : FontAwesomeIcons.chevronUp,
-        color: Colors.grey[400],
-      ),
-      splashColor: Colors.blue,
-      onPressed: () {
-        final appBarHeight = AppBar().preferredSize.height;
-        final screenHeight = MediaQuery.of(context).size.height;
-
-        final double newHeight =
-            (isExpanded) ? 200 : screenHeight - appBarHeight - 24;
-
-        setState(() {
-          _height = newHeight;
-        });
+    return GestureDetector(
+      onVerticalDragUpdate: (DragUpdateDetails details) {
+        _setHeightForDragDirection(details.localPosition.dy);
       },
+      child: IconButton(
+        icon: Icon(
+          isExpanded
+              ? FontAwesomeIcons.chevronDown
+              : FontAwesomeIcons.chevronUp,
+          color: Colors.grey[400],
+        ),
+        splashColor: Colors.blue,
+        onPressed: () {
+          final double newHeight =
+              (isExpanded) ? this.minHeight : this.maxHeight;
+
+          setState(() {
+            _height = newHeight;
+          });
+        },
+      ),
     );
   }
 
@@ -89,9 +93,31 @@ class _PlantDetailsCardState extends State<PlantDetailsCard> {
       customTextAlign: (node) => TextAlign.justify,
       customTextStyle: (node, style) =>
           Theme.of(context).primaryTextTheme.body1.copyWith(
-                fontSize: 24,
+                fontSize: 18,
               ),
       data: widget.plant.description,
     );
+  }
+
+  get appBarHeight {
+    return AppBar().preferredSize.height;
+  }
+
+  get screenHeight {
+    return MediaQuery.of(context).size.height;
+  }
+
+  double get minHeight => 200.0;
+
+  double get maxHeight => this.screenHeight - this.appBarHeight - 36.0;
+
+  void _setHeightForDragDirection(double dy) {
+    setState(() {
+      if (dy < 0) {
+        _height = maxHeight;
+      } else {
+        _height = minHeight;
+      }
+    });
   }
 }
