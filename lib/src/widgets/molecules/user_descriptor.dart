@@ -9,6 +9,7 @@ class UserDescriptor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthConnector(builder: (BuildContext context, AuthViewModel model) {
+      final name = model.user == null ? '' : (model.user['name'] ?? 'No Name');
       final email = model.user == null ? '' : model.user['email'];
 
       return Container(
@@ -24,7 +25,7 @@ class UserDescriptor extends StatelessWidget {
               ),
             ),
             Text(
-              'Ben Simpson',
+              name,
               style: Theme.of(context).primaryTextTheme.title,
             ),
             Text(
