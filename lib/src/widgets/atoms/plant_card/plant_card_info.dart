@@ -29,7 +29,7 @@ class PlantCardInfo extends StatelessWidget {
                   margin: EdgeInsets.only(top: 8),
                   child: Text(
                     plant.commonName,
-                    style: Theme.of(context).primaryTextTheme.body1.copyWith(
+                    style: Theme.of(context).primaryTextTheme.subtitle.copyWith(
                           fontFamily: 'JosefinSans',
                           fontSize: 20,
                         ),

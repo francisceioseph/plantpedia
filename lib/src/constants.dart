@@ -28,3 +28,12 @@ final kDarkColorAccentIconTheme = Color(0xff999DB3);
 
 final kEmailRegex =
     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+
+final kGreen10 = Color(0xff79A368);
+final kGreen30 = Color(0xff518D54);
+final kGreen40 = Color(0xff335B3D);
+final kGreen50 = Color(0xff243122);
+final kGreen70 = Color(0xff1B2C20);
+final kGreen90 = Color(0xff192316);
+final kYellow = Color(0xffF5C705);
+final kOrange = Color(0xffB86D07);

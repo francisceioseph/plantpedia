@@ -32,7 +32,7 @@ class PlantDetail extends StatelessWidget {
   Widget _renderOtherPictures() {
     if (plant.images.length > 1) {
       return PlantPicturesCard(
-        images: plant.images.sublist(1),
+        images: plant.images,
       );
     }
 

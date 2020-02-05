@@ -5,51 +5,56 @@ final kLightTheme = ThemeData(
   brightness: Brightness.light,
   backgroundColor: Colors.white,
   scaffoldBackgroundColor: kBackgroundColor,
+  accentColor: kGreen30,
   appBarTheme: AppBarTheme(
     color: kBackgroundColor,
     textTheme: TextTheme(
       title: TextStyle(
-        color: kTerciaryColor,
+        color: kGreen30,
         fontFamily: 'JosefinSans',
         fontSize: 24,
         fontWeight: FontWeight.w600,
       ),
     ),
   ),
-  buttonColor: kTerciaryColor,
+  buttonColor: kGreen30,
   primaryIconTheme: IconThemeData(
-    color: kTerciaryAccentColor,
+    color: kGreen30,
   ),
   accentIconTheme: IconThemeData(
-    color: kAccentColor,
+    color: kOrange,
   ),
   primaryTextTheme: TextTheme(
-      title: TextStyle(
-        fontFamily: 'SF Pro Display',
-        color: kTextColor,
-      ),
-      subtitle: TextStyle(
-        fontFamily: 'SF Pro Display',
-        fontSize: 12,
-        fontWeight: FontWeight.bold,
-        color: kAccentColor,
-      ),
-      body1: TextStyle(
-        fontFamily: 'SF Pro Display',
-        color: kTerciaryColor,
-      )),
+    title: TextStyle(
+      fontFamily: 'SF Pro Display',
+      color: kGreen90,
+    ),
+    subhead: TextStyle(
+      fontFamily: 'SF Pro Display',
+      color: kGreen90,
+    ),
+    subtitle: TextStyle(
+      fontFamily: 'SF Pro Display',
+      fontSize: 12,
+      color: kGreen10,
+    ),
+    body1: TextStyle(
+      fontFamily: 'SF Pro Display',
+      color: kGreen90,
+    ),
+  ),
 );
 
 final kDarkTheme = ThemeData(
   brightness: Brightness.dark,
-  backgroundColor: kDarkAccentColor,
-  scaffoldBackgroundColor: kDarkPrimaryColor,
-  accentColor: kDarkAccentColor2,
+  backgroundColor: kGreen50,
+  scaffoldBackgroundColor: kGreen90,
+  accentColor: kYellow,
   appBarTheme: AppBarTheme(
-    color: kDarkAccentColor,
+    color: kGreen70,
     textTheme: TextTheme(
       title: TextStyle(
-        color: kTerciaryColor,
+        color: kAlternateTextColor,
         fontFamily: 'JosefinSans',
         fontSize: 24,
         fontWeight: FontWeight.w600,
@@ -68,11 +73,15 @@ final kDarkTheme = ThemeData(
       fontFamily: 'SF Pro Display',
       color: kDarkTextColor,
     ),
+    subhead: TextStyle(
+      fontFamily: 'SF Pro Display',
+      color: kGreen10,
+    ),
     subtitle: TextStyle(
       fontFamily: 'SF Pro Display',
       fontSize: 12,
       fontWeight: FontWeight.bold,
-      color: kDarkAccentColor,
+      color: kGreen10,
     ),
     body1: TextStyle(
       fontFamily: 'SF Pro Display',

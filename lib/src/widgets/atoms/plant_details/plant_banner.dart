@@ -14,11 +14,12 @@ class PlantBanner extends StatelessWidget {
       left: 0,
       top: 0,
       width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
       child: Hero(
         tag: 'plant-image-${plant.id}',
         child: FittedBox(
           child: _renderImage(),
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.cover,
         ),
       ),
     );

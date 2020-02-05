@@ -26,22 +26,28 @@ class MainPage extends StatelessWidget {
         body: TabBarView(
           children: tabs,
         ),
-        bottomNavigationBar: TabBar(
-          tabs: <Widget>[
-            Tab(
-              icon: Icon(FontAwesomeIcons.leaf),
-              text: 'Species',
-            ),
-            Tab(
-              icon: Icon(FontAwesomeIcons.cogs),
-              text: 'Settings',
-            )
-          ],
-          labelColor: Colors.blue,
-          unselectedLabelColor: Colors.blueGrey,
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorPadding: EdgeInsets.all(5.0),
-          indicatorColor: Colors.blue,
+        bottomNavigationBar: Container(
+          color: Theme.of(context).appBarTheme.color,
+          child: TabBar(
+            tabs: <Widget>[
+              Tab(
+                icon: Icon(
+                  FontAwesomeIcons.leaf,
+                ),
+                text: 'Species',
+              ),
+              Tab(
+                icon: Icon(
+                  FontAwesomeIcons.cogs,
+                ),
+                text: 'Settings',
+              )
+            ],
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.all(5.0),
+            indicatorColor: Theme.of(context).accentColor,
+            labelColor: Theme.of(context).accentColor,
+          ),
         ),
       ),
     );
