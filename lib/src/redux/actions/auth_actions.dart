@@ -105,11 +105,11 @@ class Register extends ReduxAction<AppState> {
   BuildContext context;
 
   Register({
-    this.name,
-    this.email,
-    this.password,
-    this.passwordConfirmation,
-    this.context,
+    @required this.name,
+    @required this.email,
+    @required this.password,
+    @required this.passwordConfirmation,
+    @required this.context,
   });
 
   Future<AppState> reduce() async {
@@ -117,6 +117,7 @@ class Register extends ReduxAction<AppState> {
 
     try {
       final res = await AuthRepository.register(
+        name,
         email,
         password,
         passwordConfirmation,

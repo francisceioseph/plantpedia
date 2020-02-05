@@ -42,12 +42,14 @@ class AuthRepository {
   }
 
   static Future<http.Response> register(
+    String name,
     String email,
     String password,
     String passwordConfirmation,
   ) {
     final body = {
       "user": {
+        "name": name,
         "email": email,
         "password": password,
         "password_confirmation": passwordConfirmation,
