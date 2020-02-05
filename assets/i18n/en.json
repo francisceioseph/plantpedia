@@ -20,5 +20,6 @@
     "SETTINGS": "Settings",
     "MORE_IMAGES_TEXT": "More Images",
     "ABOUT_PLANT_TEXT": "About this plant",
-    "LOGOUT_BUTTON_TEXT": "logout"
+    "LOGOUT_BUTTON_TEXT": "logout",
+    "PLANT_DETAILS_APP_BAR_TEXT": "Plant Details"
 }
