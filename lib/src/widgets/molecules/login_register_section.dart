@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/widgets/pages/register_page.dart';
 
 class LoginRegisterSection extends StatelessWidget {
@@ -8,9 +9,13 @@ class LoginRegisterSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('Do not have an account? '),
+          Text(
+            AppLocalizations.of(context).translate('SIGN_UP_INVITE_TEXT'),
+          ),
           FlatButton(
-            child: Text('register'),
+            child: Text(
+              AppLocalizations.of(context).translate('SIGN_UP_BUTTON_TEXT'),
+            ),
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
                 RegisterPage.routeName,

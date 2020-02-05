@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/redux/actions/auth_actions.dart';
 import 'package:plantpedia/src/redux/store.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/utils/shared_validators.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
@@ -36,8 +37,9 @@ class _RegisterFormState extends State<RegisterForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               IconFormTextField(
-                labelText: 'Name',
-                hintText: 'Your full name',
+                labelText: AppLocalizations.of(context).translate('NAME_LABEL'),
+                hintText:
+                    AppLocalizations.of(context).translate('NAME_PLACEHOLDER'),
                 leadingIcon: FontAwesomeIcons.user,
                 keyboardType: TextInputType.text,
                 validator: _validateNameField,
@@ -50,8 +52,10 @@ class _RegisterFormState extends State<RegisterForm> {
                 },
               ),
               IconFormTextField(
-                labelText: 'Email',
-                hintText: 'Your email address',
+                labelText:
+                    AppLocalizations.of(context).translate('EMAIL_LABEL'),
+                hintText:
+                    AppLocalizations.of(context).translate('EMAIL_PLACEHOLDER'),
                 leadingIcon: FontAwesomeIcons.envelope,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
@@ -65,8 +69,10 @@ class _RegisterFormState extends State<RegisterForm> {
                 },
               ),
               IconFormTextField(
-                labelText: 'Password',
-                hintText: 'Your password',
+                labelText:
+                    AppLocalizations.of(context).translate('PASSWORD_LABEL'),
+                hintText: AppLocalizations.of(context)
+                    .translate('PASSWORD_PLACEHOLDER'),
                 leadingIcon: FontAwesomeIcons.lock,
                 keyboardType: TextInputType.text,
                 obscureText: true,
@@ -83,8 +89,10 @@ class _RegisterFormState extends State<RegisterForm> {
                 },
               ),
               IconFormTextField(
-                labelText: 'Password Confirmation',
-                hintText: 'Your password again :)',
+                labelText: AppLocalizations.of(context)
+                    .translate('PASSWORD_CONFIRMATION_LABEL'),
+                hintText: AppLocalizations.of(context)
+                    .translate('PASSWORD_CONFIRMATION_PLACEHOLDER'),
                 leadingIcon: FontAwesomeIcons.lock,
                 keyboardType: TextInputType.text,
                 obscureText: true,
@@ -98,7 +106,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 },
               ),
               OutlineFormButton(
-                text: 'Sign Up',
+                text: AppLocalizations.of(context)
+                    .translate('SIGN_UP_BUTTON_TEXT'),
                 onPressed: _onSubmit,
               )
             ],

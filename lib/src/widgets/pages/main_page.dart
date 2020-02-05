@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/widgets/templates/plants_tab.dart';
 import 'package:plantpedia/src/widgets/templates/settings_tab.dart';
 
@@ -34,13 +35,13 @@ class MainPage extends StatelessWidget {
                 icon: Icon(
                   FontAwesomeIcons.leaf,
                 ),
-                text: 'Species',
+                text: AppLocalizations.of(context).translate('SPECIES'),
               ),
               Tab(
                 icon: Icon(
                   FontAwesomeIcons.cogs,
                 ),
-                text: 'Settings',
+                text: AppLocalizations.of(context).translate('SETTINGS'),
               )
             ],
             indicatorSize: TabBarIndicatorSize.label,

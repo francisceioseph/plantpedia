@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/redux/actions/auth_actions.dart';
 import 'package:plantpedia/src/redux/store.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/utils/shared_validators.dart';
 import 'package:plantpedia/src/widgets/atoms/icon_form_text_field.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
@@ -45,8 +46,8 @@ class _LoginFormState extends State<LoginForm> {
 
   Widget _renderEmailField() {
     return IconFormTextField(
-      labelText: 'Email',
-      hintText: 'Your email address',
+      labelText: AppLocalizations.of(context).translate('EMAIL_LABEL'),
+      hintText: AppLocalizations.of(context).translate('EMAIL_PLACEHOLDER'),
       leadingIcon: FontAwesomeIcons.envelope,
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
@@ -63,8 +64,8 @@ class _LoginFormState extends State<LoginForm> {
 
   Widget _renderPasswordField() {
     return IconFormTextField(
-      labelText: 'Password',
-      hintText: 'Your password',
+      labelText: AppLocalizations.of(context).translate('PASSWORD_LABEL'),
+      hintText: AppLocalizations.of(context).translate('PASSWORD_PLACEHOLDER'),
       leadingIcon: FontAwesomeIcons.lock,
       keyboardType: TextInputType.text,
       obscureText: true,
@@ -81,7 +82,7 @@ class _LoginFormState extends State<LoginForm> {
 
   Widget _renderSubmitButton() {
     return OutlineFormButton(
-      text: 'Sign In',
+      text: AppLocalizations.of(context).translate('LOGIN_BUTTON_TEXT'),
       onPressed: _onSubmit,
     );
   }

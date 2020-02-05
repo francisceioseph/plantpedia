@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plantpedia/src/models/auth_view_model.dart';
 import 'package:plantpedia/src/redux/actions/auth_actions.dart';
 import 'package:plantpedia/src/redux/store.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/widgets/atoms/outline_form_button.dart';
 import 'package:plantpedia/src/widgets/templates/auth_connector.dart';
 
@@ -40,7 +41,8 @@ class UserDescriptor extends StatelessWidget {
               physics: ClampingScrollPhysics(),
               children: <Widget>[
                 OutlineFormButton(
-                  text: 'logout',
+                  text: AppLocalizations.of(context)
+                      .translate('LOGOUT_BUTTON_TEXT'),
                   onPressed: () {
                     store.dispatch(Logout(context: context));
                   },

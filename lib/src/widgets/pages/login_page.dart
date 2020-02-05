@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/widgets/molecules/app_logo.dart';
 import 'package:plantpedia/src/widgets/molecules/login_form.dart';
 import 'package:plantpedia/src/widgets/molecules/login_register_section.dart';
@@ -12,7 +13,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Login',
+          AppLocalizations.of(context).translate('LOGIN_APP_BAR'),
         ),
       ),
       body: Container(
@@ -22,7 +23,7 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[
                 AppLogo(),
                 LoginForm(),
-                _renderLoginSocialMessage(),
+                _renderLoginSocialMessage(context),
                 LoginSocial(),
                 LoginRegisterSection(),
               ],
@@ -33,10 +34,12 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _renderLoginSocialMessage() {
+  _renderLoginSocialMessage(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 16),
-      child: Text('Also, you can login with'),
+      child: Text(
+        AppLocalizations.of(context).translate('LOGIN_SOCIAL_TEXT'),
+      ),
     );
   }
 }

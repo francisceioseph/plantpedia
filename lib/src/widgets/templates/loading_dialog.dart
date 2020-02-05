@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/utils/app_localizations.dart';
 
 class LoadingDialog extends StatelessWidget {
   @override
@@ -17,7 +18,9 @@ class LoadingDialog extends StatelessWidget {
               margin: EdgeInsets.only(right: 24),
               child: CircularProgressIndicator(),
             ),
-            new Text("Loading..."),
+            new Text(
+              AppLocalizations.of(context).translate('LOADING_TEXT'),
+            ),
           ],
         ),
       ),
