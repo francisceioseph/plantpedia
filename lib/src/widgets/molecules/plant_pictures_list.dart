@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/models/plant_image_model.dart';
+import 'package:plantpedia/src/models/image_model.dart';
 import 'package:plantpedia/src/widgets/atoms/thumbnail.dart';
 
 class PlantPicturesList extends StatelessWidget {
-  final List<PlantImageModel> images;
+  final List<ImageModel> images;
 
   PlantPicturesList({
     this.images = const [],

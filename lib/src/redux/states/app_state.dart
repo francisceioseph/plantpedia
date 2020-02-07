@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/redux/states/auth_state.dart';
-import 'package:plantpedia/src/redux/states/plant_state.dart';
+import 'package:plantpedia/src/redux/states/species_state.dart';
 
 class AppState {
-  final PlantState plantState;
+  final SpeciesState speciesState;
   final AuthState authState;
 
   AppState({
-    @required this.plantState,
+    @required this.speciesState,
     @required this.authState,
   });
 
   factory AppState.initial() => AppState(
-        plantState: PlantState.initialState(),
+        speciesState: SpeciesState.initialState(),
         authState: AuthState.initialState(),
       );
 
   AppState copy({
-    PlantState plantState,
+    SpeciesState speciesState,
     AuthState authState,
   }) {
     return AppState(
-      plantState: plantState ?? this.plantState,
+      speciesState: speciesState ?? this.speciesState,
       authState: authState ?? this.authState,
     );
   }

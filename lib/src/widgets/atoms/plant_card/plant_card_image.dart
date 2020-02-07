@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/models/plant_model.dart';
+import 'package:plantpedia/src/models/species_model.dart';
 import 'package:plantpedia/src/widgets/atoms/placeholder_image.dart';
 
 class PlantCardImage extends StatelessWidget {
-  final PlantModel plant;
+  final SpeciesModel plant;
 
   PlantCardImage({@required this.plant});
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/models/plant_model.dart';
-import 'package:plantpedia/src/redux/actions/plants_actions.dart';
+import 'package:plantpedia/src/models/species_model.dart';
+import 'package:plantpedia/src/redux/actions/species_actions.dart';
 import 'package:plantpedia/src/redux/store.dart';
 import 'package:plantpedia/src/widgets/atoms/plant_card/plant_card_image.dart';
 import 'package:plantpedia/src/widgets/atoms/plant_card/plant_card_info.dart';
 import 'package:plantpedia/src/widgets/pages/plant_detail_page.dart';
 
 class PlantCard extends StatelessWidget {
-  final PlantModel plant;
+  final SpeciesModel plant;
 
   PlantCard({@required this.plant});
 
@@ -54,7 +54,7 @@ class PlantCard extends StatelessWidget {
   }
 
   _onPlantTap(BuildContext context) {
-    store.dispatch(SelectPlant(plant: plant));
+    store.dispatch(SelectSpecies(species: plant));
     Navigator.of(context).pushNamed(PlantDetailPage.routeName);
   }
 }

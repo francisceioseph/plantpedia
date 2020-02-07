@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/models/plant_model.dart';
+import 'package:plantpedia/src/models/species_model.dart';
 import 'package:plantpedia/src/widgets/atoms/plant_details/plant_banner.dart';
 import 'package:plantpedia/src/widgets/atoms/plant_details/plant_subtitle.dart';
 import 'package:plantpedia/src/widgets/atoms/plant_details/plant_title.dart';
@@ -7,7 +7,7 @@ import 'package:plantpedia/src/widgets/organisms/plant_details_card.dart';
 import 'package:plantpedia/src/widgets/organisms/plant_pictures_card.dart';
 
 class PlantDetail extends StatelessWidget {
-  final PlantModel plant;
+  final SpeciesModel plant;
 
   PlantDetail({this.plant});
 

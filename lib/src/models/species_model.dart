@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
-import 'package:plantpedia/src/models/plant_image_model.dart';
+import 'package:plantpedia/src/models/image_model.dart';
 
-class PlantModel extends Equatable {
+class SpeciesModel extends Equatable {
   final int id;
   final String scientificName;
   final String commonName;
   final String nativeStatus;
   final String description;
-  final List<PlantImageModel> images;
+  final List<ImageModel> images;
 
-  PlantModel({
+  SpeciesModel({
     this.id,
     this.scientificName,
     this.commonName,
@@ -18,13 +18,13 @@ class PlantModel extends Equatable {
     this.description,
   });
 
-  PlantModel.fromJson(Map<String, dynamic> json)
+  SpeciesModel.fromJson(Map<String, dynamic> json)
       : id = json['id'] ?? '',
         scientificName = json['scientific_name'] ?? '',
         commonName = json['common_name'] ?? '',
         nativeStatus = json['native_status'] ?? '',
         description = json['description'],
-        images = PlantImageModel.arrayFromJson(json['species_images'] ?? []);
+        images = ImageModel.arrayFromJson(json['species_images'] ?? []);
 
   @override
   List<Object> get props => [

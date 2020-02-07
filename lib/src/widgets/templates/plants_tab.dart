@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/widgets/templates/plants_connector.dart';
+import 'package:plantpedia/src/models/species_grid_view_model.dart';
+import 'package:plantpedia/src/widgets/organisms/plant_grid.dart';
+import 'package:plantpedia/src/widgets/templates/species_grid_connector.dart';
 
 class PlantsTab extends StatelessWidget {
   @override
@@ -10,7 +12,13 @@ class PlantsTab extends StatelessWidget {
         left: 16,
       ),
       child: Center(
-        child: PlantsConnector(),
+        child: SpeciesGridConnector(
+          builder: (BuildContext context, SpeciesGridViewModel props) {
+            return PlantGrid(
+              plants: props.speciesIds.values.toList(),
+            );
+          },
+        ),
       ),
     );
   }

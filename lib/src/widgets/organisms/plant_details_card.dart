@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:plantpedia/src/models/plant_model.dart';
+import 'package:plantpedia/src/models/species_model.dart';
 import 'package:plantpedia/src/utils/app_localizations.dart';
 
 class PlantDetailsCard extends StatefulWidget {
-  final PlantModel plant;
+  final SpeciesModel plant;
 
   PlantDetailsCard({this.plant});
 

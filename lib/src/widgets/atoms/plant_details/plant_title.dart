@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/models/plant_model.dart';
+import 'package:plantpedia/src/models/species_model.dart';
 
 class PlantTitle extends StatelessWidget {
-  final PlantModel plant;
+  final SpeciesModel plant;
 
   PlantTitle({this.plant});
 

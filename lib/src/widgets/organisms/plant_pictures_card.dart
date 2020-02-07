@@ -3,14 +3,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plantpedia/src/constants.dart';
-import 'package:plantpedia/src/models/plant_image_model.dart';
+import 'package:plantpedia/src/models/image_model.dart';
 import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/widgets/atoms/blur_box.dart';
 import 'package:plantpedia/src/widgets/atoms/placeholder_image.dart';
 import 'package:plantpedia/src/widgets/molecules/plant_pictures_list.dart';
 
 class PlantPicturesCard extends StatefulWidget {
-  final List<PlantImageModel> images;
+  final List<ImageModel> images;
 
   PlantPicturesCard({
     this.images,
