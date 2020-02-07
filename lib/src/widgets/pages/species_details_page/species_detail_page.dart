@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:plantpedia/src/models/species_view_model.dart';
 import 'package:plantpedia/src/utils/app_localizations.dart';
 import 'package:plantpedia/src/widgets/connectors/species_connector.dart';
+import 'package:plantpedia/src/widgets/pages/species_details_page/species_details/species_details.dart';
 
 class SpeciesDetailsPage extends StatelessWidget {
   static String routeName = '/plant';
@@ -16,7 +18,13 @@ class SpeciesDetailsPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: SpeciesConnector(),
+          child: SpeciesConnector(
+            builder: (BuildContext context, SpeciesViewModel props) {
+              return SpeciesDetails(
+                species: props.species,
+              );
+            },
+          ),
         ),
       ),
     );
