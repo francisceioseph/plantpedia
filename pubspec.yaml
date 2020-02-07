@@ -34,7 +34,6 @@ dependencies:
   cached_network_image: ^2.0.0
   carousel_slider: ^1.4.1
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,12 +72,11 @@ flutter:
           weight: 900
     - family: JosefinSans
       fonts:
-      - asset: assets/fonts/Josefin/JosefinSans-Bold.ttf
-        weight: 900
-      - asset: assets/fonts/Josefin/JosefinSans-SemiBold.ttf
-        weight: 600
-      - asset: assets/fonts/Josefin/JosefinSans-Regular.ttf
-        weight: 400
-      - asset: assets/fonts/Josefin/JosefinSans-Thin.ttf
-        weight: 200
-        
+        - asset: assets/fonts/Josefin/JosefinSans-Bold.ttf
+          weight: 900
+        - asset: assets/fonts/Josefin/JosefinSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Josefin/JosefinSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Josefin/JosefinSans-Thin.ttf
+          weight: 200

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:plantpedia/src/models/plant_model.dart';
-import 'package:plantpedia/src/widgets/organisms/plant_card_connector.dart';
+import 'package:plantpedia/src/widgets/templates/plant_card_connector.dart';
 
 class PlantGrid extends StatelessWidget {
   final List<PlantModel> plants;
