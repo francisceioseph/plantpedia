@@ -10,7 +10,7 @@ class SpeciesGridViewModel {
 
   factory SpeciesGridViewModel.build(Store<AppState> store) {
     Map<String, SpeciesModel> basicPlants = store.state.speciesState.speciesIds;
-    Map<String, SpeciesModel> plants = store.state.speciesState.species;
+    Map<String, SpeciesModel> plants = store.state.speciesState.speciesMap;
 
     return SpeciesGridViewModel(
       speciesIds: basicPlants,

@@ -2,27 +2,27 @@ import 'package:plantpedia/src/models/species_model.dart';
 
 class SpeciesState {
   final Map<String, SpeciesModel> speciesIds;
-  final Map<String, SpeciesModel> species;
+  final Map<String, SpeciesModel> speciesMap;
 
-  final SpeciesModel plant;
+  final SpeciesModel species;
 
-  SpeciesState({this.speciesIds, this.species, this.plant});
+  SpeciesState({this.speciesIds, this.speciesMap, this.species});
 
   SpeciesState copy({
     final Map<String, SpeciesModel> speciesIds,
     final Map<String, SpeciesModel> speciesMap,
-    SpeciesModel plant,
+    SpeciesModel species,
   }) {
     return SpeciesState(
       speciesIds: speciesIds ?? this.speciesIds,
-      species: speciesMap ?? this.species,
-      plant: plant ?? this.plant,
+      speciesMap: speciesMap ?? this.speciesMap,
+      species: species ?? this.species,
     );
   }
 
   factory SpeciesState.initialState() => SpeciesState(
         speciesIds: Map<String, SpeciesModel>(),
-        species: Map<String, SpeciesModel>(),
-        plant: null,
+        speciesMap: Map<String, SpeciesModel>(),
+        species: null,
       );
 }

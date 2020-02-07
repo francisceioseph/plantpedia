@@ -8,7 +8,7 @@ class SpeciesViewModel {
   SpeciesViewModel(this.species);
 
   factory SpeciesViewModel.build(Store<AppState> store) {
-    SpeciesModel plant = store.state.speciesState.plant;
-    return SpeciesViewModel(plant);
+    SpeciesModel species = store.state.speciesState.species;
+    return SpeciesViewModel(species);
   }
 }

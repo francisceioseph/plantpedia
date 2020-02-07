@@ -66,14 +66,14 @@ class GetSpeciesSuccess extends ReduxAction<AppState> {
   AppState reduce() {
     final Map<String, SpeciesModel> speciesMap = Map<String, SpeciesModel>();
 
-    speciesMap.addAll(state.speciesState.species);
+    speciesMap.addAll(state.speciesState.speciesMap);
     speciesMap['${specie.id}'] = specie;
 
-    final plantState = state.speciesState.copy(
+    final speciesState = state.speciesState.copy(
       speciesMap: speciesMap,
     );
 
-    return state.copy(speciesState: plantState);
+    return state.copy(speciesState: speciesState);
   }
 }
 
@@ -83,7 +83,7 @@ class SelectSpecies extends ReduxAction<AppState> {
   SelectSpecies({this.species}) : assert(species != null);
 
   AppState reduce() {
-    final plantState = state.speciesState.copy(plant: species);
-    return state.copy(speciesState: plantState);
+    final speciesState = state.speciesState.copy(species: species);
+    return state.copy(speciesState: speciesState);
   }
 }

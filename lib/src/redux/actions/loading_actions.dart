@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:async_redux/async_redux.dart';
 import 'package:plantpedia/src/redux/states/app_state.dart';
-import 'package:plantpedia/src/widgets/templates/loading_dialog.dart';
+import 'package:plantpedia/src/widgets/loading_dialog/loading_dialog.dart';
 
 class StartLoading extends ReduxAction<AppState> {
   final BuildContext context;

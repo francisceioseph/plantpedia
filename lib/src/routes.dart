@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:plantpedia/src/redux/store.dart';
-import 'package:plantpedia/src/widgets/pages/main_page.dart';
-import 'package:plantpedia/src/widgets/pages/plant_detail_page.dart';
-import 'package:plantpedia/src/widgets/pages/login_page.dart';
-import 'package:plantpedia/src/widgets/pages/register_page.dart';
+import 'package:plantpedia/src/widgets/pages/main_page/main_page.dart';
+import 'package:plantpedia/src/widgets/pages/species_details_page/species_detail_page.dart';
+import 'package:plantpedia/src/widgets/pages/login_page/login_page.dart';
+import 'package:plantpedia/src/widgets/pages/register_page/register_page.dart';
 
 class AppRouter {
   MaterialPageRoute builder(RouteSettings settings) {
@@ -33,10 +33,10 @@ class AppRouter {
   }
 
   MaterialPageRoute _protectedRoutes(RouteSettings settings) {
-    if (settings.name == PlantDetailPage.routeName) {
+    if (settings.name == SpeciesDetailsPage.routeName) {
       return MaterialPageRoute(
         builder: (BuildContext context) {
-          return PlantDetailPage();
+          return SpeciesDetailsPage();
         },
       );
     }

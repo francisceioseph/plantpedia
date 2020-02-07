@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:async_redux/async_redux.dart';
 import 'package:plantpedia/src/redux/states/app_state.dart';
-import 'package:plantpedia/src/widgets/pages/login_page.dart';
-import 'package:plantpedia/src/widgets/pages/main_page.dart';
+import 'package:plantpedia/src/widgets/pages/login_page/login_page.dart';
+import 'package:plantpedia/src/widgets/pages/main_page/main_page.dart';
 
 class NavigateToRoot extends ReduxAction<AppState> {
   final BuildContext context;

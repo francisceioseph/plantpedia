@@ -6,7 +6,7 @@ import 'package:plantpedia/src/redux/store.dart';
 import 'package:plantpedia/src/routes.dart';
 import 'package:plantpedia/src/themes.dart';
 import 'package:plantpedia/src/utils/app_localizations.dart';
-import 'package:plantpedia/src/widgets/pages/login_page.dart';
+import 'package:plantpedia/src/widgets/pages/login_page/login_page.dart';
 
 class PlantPedia extends StatelessWidget {
   final AppRouter _router = AppRouter();
