@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plantpedia/src/constants.dart';
 import 'package:plantpedia/src/models/species_model.dart';
 import 'package:plantpedia/src/utils/app_localizations.dart';
+import 'package:plantpedia/src/widgets/blur_box/blur_box.dart';
+import 'package:plantpedia/src/widgets/flower_description_card/flower_description_card.dart';
+import 'package:plantpedia/src/widgets/foliage_description_card/foliage_description_card.dart';
+import 'package:plantpedia/src/widgets/growth_description_card/growth_description_card.dart';
+import 'package:plantpedia/src/widgets/html_text_card/html_text_card.dart';
+import 'package:plantpedia/src/widgets/propagation_description_card/propagation_description_card.dart';
 
 class SpeciesDetailsCardSection extends StatefulWidget {
   final SpeciesModel species;
@@ -22,36 +28,77 @@ class _SpeciesDetailsCardSectionState extends State<SpeciesDetailsCardSection> {
     return Positioned(
       left: 0,
       bottom: 0,
-      child: AnimatedContainer(
-        duration: Duration(
-          milliseconds: 400,
-        ),
-        height: _height,
-        padding: EdgeInsets.only(
-          right: 16,
-          left: 16,
-        ),
-        alignment: Alignment.topCenter,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
+      child: BlurBox(
+        child: AnimatedContainer(
+          duration: Duration(
+            milliseconds: 400,
           ),
-        ),
-        child: ListView(
-          children: <Widget>[
-            _renderUpDownButton(),
-            _renderDescriptionTitle(),
-            _renderHtmlDescription()
-          ],
+          height: _height,
+          padding: EdgeInsets.only(
+            right: 4,
+            left: 4,
+          ),
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: backgroundColor.withOpacity(0.75),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+          ),
+          child: ListView(
+            children: <Widget>[
+              _renderUpDownButton(),
+              HtmlTextCard(
+                titleText: AppLocalizations.of(context).translate(
+                  'ABOUT_PLANT_TEXT',
+                ),
+                htmlText: widget.species.description,
+              ),
+              if (shouldShowFlowerCard)
+                FlowerDescriptionCard(
+                  flower: widget.species.flower,
+                ),
+              if (shouldShowFoliageCard)
+                FoliageDescriptionCard(
+                  foliage: widget.species.foliage,
+                ),
+              if (shouldShowPropagationCard)
+                PropagationDescriptionCard(
+                  propagation: widget.species.propagation,
+                ),
+              if (shouldShowGrowthCard)
+                GrowthDescriptionCard(
+                  growth: widget.species.growth,
+                )
+            ],
+          ),
         ),
       ),
     );
   }
 
+  get shouldShowFoliageCard => _showIfPropertiesSet(
+        widget.species.foliage,
+      );
+
+  get shouldShowFlowerCard => _showIfPropertiesSet(
+        widget.species.flower,
+      );
+
+  get shouldShowPropagationCard => _showIfPropertiesSet(
+        widget.species.propagation,
+      );
+
+  get shouldShowGrowthCard => _showIfPropertiesSet(
+        widget.species.growth,
+      );
+
   get isExpanded => _height > 200;
+
+  get backgroundColor => Theme.of(context).brightness == Brightness.light
+      ? Color(0x2b5329)
+      : kGreen50;
 
   Widget _renderUpDownButton() {
     return GestureDetector(
@@ -78,30 +125,6 @@ class _SpeciesDetailsCardSectionState extends State<SpeciesDetailsCardSection> {
     );
   }
 
-  Widget _renderDescriptionTitle() {
-    final textStyle = Theme.of(context).primaryTextTheme.title.copyWith(
-          fontFamily: 'JosefinSans',
-          fontSize: 21,
-          fontWeight: FontWeight.bold,
-        );
-
-    return Text(
-      AppLocalizations.of(context).translate('ABOUT_PLANT_TEXT'),
-      style: textStyle,
-    );
-  }
-
-  Widget _renderHtmlDescription() {
-    return Html(
-      customTextAlign: (node) => TextAlign.justify,
-      customTextStyle: (node, style) =>
-          Theme.of(context).primaryTextTheme.body1.copyWith(
-                fontSize: 18,
-              ),
-      data: widget.species.description,
-    );
-  }
-
   get appBarHeight {
     return AppBar().preferredSize.height;
   }
@@ -122,5 +145,12 @@ class _SpeciesDetailsCardSectionState extends State<SpeciesDetailsCardSection> {
         _height = minHeight;
       }
     });
+  }
+
+  bool _showIfPropertiesSet(dynamic obj) {
+    return obj.values
+            .where((f) => f != null && f.toString().length > 0)
+            .length >
+        1;
   }
 }

@@ -16,6 +16,10 @@ class BlurBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(16),
+        topRight: Radius.circular(16),
+      ),
       child: BackdropFilter(
         filter: ImageFilter.blur(
           sigmaX: sigmaX,

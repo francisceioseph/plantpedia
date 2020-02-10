@@ -28,9 +28,8 @@ class _SpeciesPicturesCardSectionState
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = Theme.of(context).brightness == Brightness.light
-        ? Color(0xff0b6623)
-        : Color(0xff4c5c68);
+    final backgroundColor =
+        Theme.of(context).brightness == Brightness.light ? kgreen4 : kGreen45;
 
     return Positioned(
       left: 0,
@@ -77,7 +76,7 @@ class _SpeciesPicturesCardSectionState
           isExpanded
               ? FontAwesomeIcons.chevronDown
               : FontAwesomeIcons.chevronUp,
-          color: Colors.grey[400],
+          color: Colors.grey[600],
         ),
         splashColor: Colors.grey[350],
         onPressed: () {
@@ -100,7 +99,6 @@ class _SpeciesPicturesCardSectionState
           fontFamily: 'JosefinSans',
           fontSize: 21,
           fontWeight: FontWeight.bold,
-          color: kAlternateTextColor,
         );
     return Text(
       AppLocalizations.of(context).translate('MORE_IMAGES_TEXT'),

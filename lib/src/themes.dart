@@ -24,6 +24,9 @@ final kLightTheme = ThemeData(
   accentIconTheme: IconThemeData(
     color: kOrange,
   ),
+  cardTheme: CardTheme(
+    color: kBackgroundColor2,
+  ),
   primaryTextTheme: TextTheme(
     title: TextStyle(
       fontFamily: 'SF Pro Display',
@@ -67,6 +70,9 @@ final kDarkTheme = ThemeData(
   ),
   accentIconTheme: IconThemeData(
     color: kDarkColorAccentIconTheme,
+  ),
+  cardTheme: CardTheme(
+    color: kGreen40,
   ),
   primaryTextTheme: TextTheme(
     title: TextStyle(
