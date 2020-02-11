@@ -96,7 +96,6 @@ class _SpeciesPicturesCardSectionState
 
   Widget _renderCardTitle() {
     final textStyle = Theme.of(context).primaryTextTheme.title.copyWith(
-          fontFamily: 'JosefinSans',
           fontSize: 21,
           fontWeight: FontWeight.bold,
         );

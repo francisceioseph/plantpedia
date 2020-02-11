@@ -20,7 +20,6 @@ class SpeciesGridCardInfo extends StatelessWidget {
                 Text(
                   species.scientificName,
                   style: Theme.of(context).primaryTextTheme.title.copyWith(
-                        fontFamily: 'JosefinSans',
                         fontSize: 22,
                         fontWeight: FontWeight.normal,
                       ),
@@ -30,7 +29,6 @@ class SpeciesGridCardInfo extends StatelessWidget {
                   child: Text(
                     species.commonName,
                     style: Theme.of(context).primaryTextTheme.subtitle.copyWith(
-                          fontFamily: 'JosefinSans',
                           fontSize: 20,
                         ),
                   ),

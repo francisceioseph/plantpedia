@@ -19,7 +19,6 @@ class SpeciesDetailsTitle extends StatelessWidget {
       child: Text(
         species.scientificName,
         style: Theme.of(context).primaryTextTheme.title.copyWith(
-              fontFamily: 'JosefinSans',
               fontSize: 32,
               fontWeight: FontWeight.w600,
             ),

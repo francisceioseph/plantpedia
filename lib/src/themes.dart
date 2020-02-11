@@ -29,20 +29,25 @@ final kLightTheme = ThemeData(
   ),
   primaryTextTheme: TextTheme(
     title: TextStyle(
-      fontFamily: 'SF Pro Display',
-      color: kGreen90,
+      fontFamily: 'JosefinSans',
+      fontSize: 20,
+      color: kGreen70,
     ),
     subhead: TextStyle(
-      fontFamily: 'SF Pro Display',
-      color: kGreen90,
+      fontFamily: 'JosefinSans',
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: kGreen30,
     ),
     subtitle: TextStyle(
-      fontFamily: 'SF Pro Display',
-      fontSize: 12,
-      color: kGreen10,
+      fontFamily: 'JosefinSans',
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: kGreen30,
     ),
     body1: TextStyle(
       fontFamily: 'SF Pro Display',
+      fontSize: 18,
       color: kGreen90,
     ),
   ),
@@ -76,21 +81,25 @@ final kDarkTheme = ThemeData(
   ),
   primaryTextTheme: TextTheme(
     title: TextStyle(
-      fontFamily: 'SF Pro Display',
+      fontFamily: 'JosefinSans',
+      fontSize: 20,
       color: kDarkTextColor,
     ),
     subhead: TextStyle(
-      fontFamily: 'SF Pro Display',
+      fontFamily: 'JosefinSans',
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
       color: kGreen10,
     ),
     subtitle: TextStyle(
-      fontFamily: 'SF Pro Display',
-      fontSize: 12,
+      fontFamily: 'JosefinSans',
+      fontSize: 18,
       fontWeight: FontWeight.bold,
       color: kGreen10,
     ),
     body1: TextStyle(
       fontFamily: 'SF Pro Display',
+      fontSize: 18,
       color: kDarkTextColor,
     ),
   ),

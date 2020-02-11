@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plantpedia/src/constants.dart';
 import 'package:plantpedia/src/utils/app_localizations.dart';
 
 final fields = [
@@ -20,16 +19,25 @@ class FlowerDescriptionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cardTitleStyle = Theme.of(context).primaryTextTheme.title.copyWith(
-          fontFamily: 'JosefinSans',
-          fontSize: 21,
-          fontWeight: FontWeight.bold,
-        );
+    final theme = Theme.of(context);
+    final textTheme = theme.primaryTextTheme;
 
-    final cardSubheadStyle = Theme.of(context)
-        .primaryTextTheme
-        .subhead
-        .copyWith(fontFamily: 'JosefinSans', color: kgreen5);
+    final titleStyle = textTheme.title.copyWith(
+      fontSize: 21,
+      fontWeight: FontWeight.bold,
+    );
+
+    final subheadStyle = theme.brightness == Brightness.light
+        ? textTheme.subhead
+        : textTheme.subhead.copyWith(
+            color: Colors.white,
+          );
+
+    final textStyle = textTheme.body1;
+
+    final cardColor = theme.brightness == Brightness.light
+        ? Color(0xffFFEEDB)
+        : Color(0xff6E4555);
 
     final children = <Widget>[
       Container(
@@ -40,7 +48,7 @@ class FlowerDescriptionCard extends StatelessWidget {
           AppLocalizations.of(context).translate(
             'FLOWER_CARD_TITLE_TEXT',
           ),
-          style: cardTitleStyle,
+          style: titleStyle,
         ),
       ),
     ];
@@ -55,11 +63,14 @@ class FlowerDescriptionCard extends StatelessWidget {
             AppLocalizations.of(context).translate(
               field['translate'],
             ),
-            style: cardSubheadStyle,
+            style: subheadStyle,
           ),
         );
 
-        final content = Text(value);
+        final content = Text(
+          value,
+          style: textStyle,
+        );
 
         children.add(title);
         children.add(content);
@@ -67,6 +78,7 @@ class FlowerDescriptionCard extends StatelessWidget {
     });
 
     return Card(
+      color: cardColor,
       elevation: 4,
       child: Container(
         padding: EdgeInsets.all(16),

@@ -13,13 +13,13 @@ class HtmlTextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cardTitleStyle = Theme.of(context).primaryTextTheme.title.copyWith(
-          fontFamily: 'JosefinSans',
           fontSize: 21,
           fontWeight: FontWeight.bold,
         );
 
-    final htmlTextStyle =
-        Theme.of(context).primaryTextTheme.body1.copyWith(fontSize: 18);
+    final htmlTextStyle = Theme.of(context).primaryTextTheme.body1.copyWith(
+          fontSize: 18,
+        );
 
     return Card(
       elevation: 4,

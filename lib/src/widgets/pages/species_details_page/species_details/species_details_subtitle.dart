@@ -18,7 +18,6 @@ class SpeciesDetailsSubtitle extends StatelessWidget {
       child: Text(
         species.commonName,
         style: Theme.of(context).primaryTextTheme.subtitle.copyWith(
-              fontFamily: 'JosefinSans',
               fontSize: 28,
             ),
       ),
