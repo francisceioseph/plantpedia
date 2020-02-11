@@ -12,23 +12,23 @@ A simple app that gives you access to [PlantPedia](https://plantpedia-server.her
 
 ### Sign In
 
-![Sign In Screen](/github/Screenshot_20200211-133930.png | width=100)
+<img src="./github/Screenshot_20200211-133930.png" alt="Sign In" width="auto" height="500">
 
 ### Sign Up
 
-![sign Out Screen](/github/Screenshot_20200211-133935.png | width=100)
+<img src="./github/Screenshot_20200211-133935.png" alt="Sign Up" width="auto" height="500">
 
 ### Species List
 
-![Species List Screen](/github/Screenshot_20200211-134003.png | width=100)
+<img src="./github/Screenshot_20200211-134003.png" alt="Species List" width="auto" height="500">
 
 ### Species Details
 
-![Species Details Screen 1](/github/Screenshot_20200211-134008.png | width=100)
-![Species Details Screen 2](/github/Screenshot_20200211-134012.png | width=100)
-![Species Details Screen 3](/github/Screenshot_20200211-134020.png | width=100)
-![Species Details Screen 4](/github/Screenshot_20200211-134024.png | width=100)
+<img src="./github/Screenshot_20200211-134008.png" alt="Species Details 1" width="auto" height="500">
+<img src="./github/Screenshot_20200211-134012.png" alt="Species Details 2" width="auto" height="500">
+<img src="./github/Screenshot_20200211-134020.png" alt="Species Details 3" width="auto" height="500">
+<img src="./github/Screenshot_20200211-134024.png" alt="Species Details 4" width="auto" height="500">
 
 ### Logout
 
-![Login Screen](/github/Screenshot_20200211-134029.png | width=100)
+<img src="./github/Screenshot_20200211-134029.png" alt="Logout" width="auto" height="500">
