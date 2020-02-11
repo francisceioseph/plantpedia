@@ -1,16 +1,34 @@
-# plantpedia
+# Plantpedia
 
-A new Flutter project.
+A simple app that gives you access to [PlantPedia](https://plantpedia-server.herokuapp.com/) plant library hosted at Heroku.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Redux as satate management library
+- Supports dark mode
+- Automatic Internationalization ('em-US', 'pt-BR')
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Sign In
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Sign In Screen](/github/Screenshot_20200211-133930.png)
+
+### Sign Up
+
+![sign Out Screen](/github/Screenshot_20200211-133935.png)
+
+### Species List
+
+![Species List Screen](/github/Screenshot_20200211-134003.png)
+
+### Species Details
+
+![Species Details Screen 1](/github/Screenshot_20200211-134008.png)
+![Species Details Screen 2](/github/Screenshot_20200211-134012.png)
+![Species Details Screen 3](/github/Screenshot_20200211-134020.png)
+![Species Details Screen 4](/github/Screenshot_20200211-134024.png)
+
+### Logout
+
+![Login Screen](/github/Screenshot_20200211-134029.png)
