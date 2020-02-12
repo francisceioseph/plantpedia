@@ -6,7 +6,7 @@ A simple app that gives you access to [PlantPedia](https://plantpedia-server.her
 
 - Redux as satate management library
 - Supports dark mode
-- Automatic Internationalization ('em-US', 'pt-BR')
+- Automatic Internationalization ('en-US', 'pt-BR')
 
 ## Screenshots
 
